@@ -77,7 +77,7 @@ alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
 alias vimrc="v ~/.dotfiles/.vimrc"
-alias zshrc="v ~/.zshrc"
+alias zshrc="v ~/.dotfiles/.zshrc"
 
 ## Rails ##
 alias dbfullreset="bundle exec rails db:drop db:create db:migrate db:seed db:fixtures:load"
