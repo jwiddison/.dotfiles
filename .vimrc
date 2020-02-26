@@ -11,7 +11,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 let g:ctrlp_working_path_mode = 'ra'
 let g:indentLine_char = '|'
 let g:lightline = {}
-let g:lightline.colorscheme = "one"
+let g:lightline.colorscheme = "onehalfdark"
 let g:neomake_open_list = 1
 let g:rainbow_active = 1
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
