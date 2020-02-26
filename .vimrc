@@ -76,9 +76,6 @@ au FocusGained,BufEnter * :checktime
 " Speed up update time for git gutter
 set updatetime=100
 
-" Italic Comments
-highlight Comment cterm=italic
-
 " =========================
 " ==== Custom Bindings ====
 " =========================
