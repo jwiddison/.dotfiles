@@ -77,6 +77,8 @@ alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
 alias vimrc="v ~/.dotfiles/.vimrc"
+alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
+alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 alias zshrc="v ~/.dotfiles/.zshrc"
 
 ## Rails ##
