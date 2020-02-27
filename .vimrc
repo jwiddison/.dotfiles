@@ -10,8 +10,6 @@ let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 let g:ctrlp_working_path_mode = 'ra'
 let g:indentLine_char = '|'
-let g:lightline = {}
-let g:lightline.colorscheme = "onehalfdark"
 let g:neomake_open_list = 1
 let g:rainbow_active = 1
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
@@ -21,14 +19,22 @@ let g:vitality_insert_cursor = 2
 let test#strategy = "neomake"
 
 " Lightline Config
+let g:lightline = {}
+let g:lightline.colorscheme = "material_vim"
 source ~/.dotfiles/vim/.vimrc-lightline
 
 " =========================
 " ====  User Settings  ====
 " =========================
 
+colorscheme material
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:material_terminal_italics = 1
+" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+let g:material_theme_style = 'palenight'
+
 " Theme
-colorscheme onehalfdark
+" colorscheme onehalfdark
 command! Light :colorscheme onehalflight
 command! Dark :colorscheme onehalfdark
 
@@ -105,7 +111,10 @@ nmap <Leader>;u <Plug>(GitGutterUndoHunk)
 nmap <Leader>;s <Plug>(GitGutterStageHunk)
 xmap <Leader>;s <Plug>(GitGutterStageHunk)
 
-" Get out of nvim terminal
+" Open nvim terminal
+map <Leader>z :term<CR>
+
+" Get out of nvim terminal back to normal mode
 :tnoremap <Esc> <C-\><C-n>
 
 " system clipboards
