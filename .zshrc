@@ -9,8 +9,6 @@ alias dev="cd ~/Dev/"
 alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
-# alias pulsar-admin="docker exec -it pkg_pulsar_1 bin/pulsar-admin"
-alias pulsar-admin="docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" | grep apachepulsar/pulsar | awk '{ print $2 }') bin/pulsar-admin"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias startpg="./.pkg/dev/start-database.sh"
@@ -27,22 +25,6 @@ function change_kitty_theme {
   ln -s ./kitty-themes/themes/$1.conf ~/.config/kitty/theme.conf
 }
 
-function junoup {
-  echo "Getting environment variables:\n"
-  export $(cat .env | xargs)
-  echo "DONE\n"
-  echo "Setting up Postgres:\n"
-  startpg
-  echo "Getting deps:\n"
-  mix deps.get
-}
-
-function startpulsar {
-  echo "Starting Pulsar:\n"
-  expulsar
-  docker-compose -f .pkg/docker-compose.yml up -d pulsar
-}
-
 function ci {
   echo "Formatting:\n"
   mix format
@@ -56,6 +38,28 @@ function ci {
   mix test
   echo "Dialyzer:\n"
   mix dialyzer
+}
+
+function junoup {
+  echo "Getting environment variables:\n"
+  export $(cat .env | xargs)
+  echo "DONE\n"
+  echo "Setting up Postgres:\n"
+  startpg
+  echo "Getting deps:\n"
+  mix deps.get
+}
+
+function pulsar-admin {
+  docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" |
+  grep apachepulsar/pulsar |
+  awk '{ print $2 }') bin/pulsar-admin
+}
+
+function startpulsar {
+  expulsar
+  echo "Starting Pulsar:\n"
+  docker-compose -f .pkg/docker-compose.yml up -d pulsar
 }
 
 ## System-wide ##
