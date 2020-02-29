@@ -30,13 +30,13 @@ source ~/.dotfiles/vim/.vimrc-lightline
 colorscheme material
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:material_terminal_italics = 1
-" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+" Material them style options: 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 let g:material_theme_style = 'palenight'
 
 " Theme
 " colorscheme onehalfdark
 command! Light :colorscheme onehalflight
-command! Dark :colorscheme onehalfdark
+command! Dark :colorscheme material 
 
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim

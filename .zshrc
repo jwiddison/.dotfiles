@@ -4,25 +4,32 @@
 
 ## Divvy-Specific ##
 alias cash="dev && cd cash-accounts/"
+alias config="cd ~/.config/"
 alias dev="cd ~/Dev/"
 alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
-# alias pulsar-admin="docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" | grep apachepulsar/pulsar | awk '{ print $2 }') bin/pulsar-admin"
-alias pulsar-admin="docker exec -it pkg_pulsar_1 bin/pulsar-admin"
+# alias pulsar-admin="docker exec -it pkg_pulsar_1 bin/pulsar-admin"
+alias pulsar-admin="docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" | grep apachepulsar/pulsar | awk '{ print $2 }') bin/pulsar-admin"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
 alias vela="dev && cd vela/"
+alias vexpulsar="expulsar & v"
+alias vvela="vela && v"
 
-getenv () {
-  export $(cat .env | xargs)
+## Divvy-Specific Functions
+
+function change_kitty_theme {
+  # See themes at: https://github.com/dexpota/kitty-themes#user-content-3024-day
+  rm ~/.config/kitty/theme.conf
+  ln -s ./kitty-themes/themes/$1.conf ~/.config/kitty/theme.conf
 }
 
-junoup () {
+function junoup {
   echo "Getting environment variables:\n"
-  getenv
+  export $(cat .env | xargs)
   echo "DONE\n"
   echo "Setting up Postgres:\n"
   startpg
@@ -30,18 +37,13 @@ junoup () {
   mix deps.get
 }
 
-startpulsar() {
+function startpulsar {
   echo "Starting Pulsar:\n"
   expulsar
   docker-compose -f .pkg/docker-compose.yml up -d pulsar
 }
 
-## System-wide ##
-alias brewtree="brew deps --tree --installed"
-alias c="code ."
-alias check-the-weather="curl https://wttr.in/slc"
-
-ci() {
+function ci {
   echo "Formatting:\n"
   mix format
   echo "Checking Formatting:\n"
@@ -56,6 +58,10 @@ ci() {
   mix dialyzer
 }
 
+## System-wide ##
+alias brewtree="brew deps --tree --installed"
+alias c="code ."
+alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
 alias desktop="cd ~/Desktop/"
 alias documents="cd ~/Documents/"
