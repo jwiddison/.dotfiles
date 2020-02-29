@@ -75,22 +75,23 @@ alias export-vscode-extension="code --list-extensions | xargs -L 1 echo code --i
 alias gb="git branch"
 alias gco="git checkout"
 alias getcurrentip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-alias gitlog="git log --oneline --graph --decorate --all"
 alias git-log-with-dates="git log --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
-alias gs="git status"
+alias gitlog="git log --oneline --graph --decorate --all"
 alias gp="git push origin HEAD"
 alias gpom="git pull origin master"
+alias gs="git status"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
+alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 # gls depends on CoreUtils being brew installed 
 alias ls="gls -alF --group-directories-first --color=auto"
+alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
 alias pr="dopen p"
 alias reloadzsh="source ~/.zshrc"
+alias see-kitty-themes="open https://github.com/dexpota/kitty-themes#user-content-3024-day"
 alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
 alias vimrc="v ~/.dotfiles/.vimrc"
-alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
-alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 alias zshrc="v ~/.dotfiles/.zshrc"
 
 ## Rails ##
