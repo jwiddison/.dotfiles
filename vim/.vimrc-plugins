@@ -28,7 +28,7 @@ Plugin 'simeji/winresizer'
 " Swap back and forth between single and multi-line blocks
 Plugin 'AndrewRadev/splitjoin.vim'
 
-" iTerm2 support
+" Re-add FocusLost and FocusGained events 
 Plugin 'sjl/vitality.vim'
 
 " Make brackets, parens, etc play nice 

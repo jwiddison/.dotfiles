@@ -1,3 +1,6 @@
+# Add this to make Tmux happy
+export TERM="xterm-256color"
+
 ###############
 ### Aliases ###
 ###############
@@ -64,9 +67,10 @@ function startpulsar {
 
 ## System-wide ##
 alias brewtree="brew deps --tree --installed"
-alias c="code ."
+alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
+alias dc="docker-compose"
 alias desktop="cd ~/Desktop/"
 alias documents="cd ~/Documents/"
 alias downloads="cd ~/Downloads/"

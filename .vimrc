@@ -34,7 +34,6 @@ let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
 
 " Theme
-" colorscheme onehalfdark
 command! Light :colorscheme onehalflight
 command! Dark :colorscheme material 
 
