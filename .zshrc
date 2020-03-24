@@ -1,5 +1,9 @@
-# Add this to make Tmux happy
-export TERM="xterm-256color"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ###############
 ### Aliases ###
@@ -90,7 +94,8 @@ alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
 alias kns="kubens"
 alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 # gls depends on CoreUtils being brew installed 
-alias ls="gls -alF --group-directories-first --color=auto"
+# alias ls="gls -alF --group-directories-first --color=auto"
+alias ls="ls -alFG"
 alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
 alias pr="dopen p"
 alias reloadzsh="source ~/.zshrc"
@@ -115,33 +120,25 @@ alias rsp2="bundle exec rails s -p 3002"
 ### Other Config ###
 ####################
 
+# Make tmux happy
+export TERM="xterm-256color"
+
 ## ASDF
 autoload -Uz compinit
 compinit
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-## ZSH
-# Zsh autocomplete
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# Configure NerdFonts and Powerlevel9k
-POWERLEVEL9K_MODE='nerdfont-complete'
-source ~/.powerlevel9k/powerlevel9k.zsh-theme
+# Configure powerlevel prompt
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Custom prompt for showing current elixir version
-# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION="echo   $(elixir -v | grep Elixir | awk '{print $2}')"
-# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION_BACKGROUND="purple"
-# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION_FOREGROUND="white"
+# Powerlevel10k
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext)
-
-plugins=(autojump)
-
-## Kubernetes
+# Kubernetes
 export TILLER_NAMESPACE=default
