@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ###############
 ### Aliases ###
 ###############
@@ -93,11 +86,10 @@ alias k="kubectl"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
 alias kns="kubens"
 alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
-# gls depends on CoreUtils being brew installed 
-# alias ls="gls -alF --group-directories-first --color=auto"
 alias ls="ls -alFG"
+alias n="ranger"
 alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
-alias powerline="v ~/.p10k.zsh"
+alias powerline="v ~/.dotfiles/.p10k.zsh"
 alias pr="dopen p"
 alias reloadzsh="source ~/.zshrc"
 alias see-kitty-themes="open https://github.com/dexpota/kitty-themes#user-content-3024-day"
@@ -121,6 +113,10 @@ alias rsp2="bundle exec rails s -p 3002"
 ### Other Config ###
 ####################
 
+# Always use nvim
+export EDITOR="/usr/local/bin/nvim"
+export VISUAL="$EDITOR"
+
 # Make tmux happy
 export TERM="xterm-256color"
 
@@ -134,9 +130,6 @@ compinit
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# Powerlevel10k
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure powerlevel prompt
 source ~/.dotfiles/.p10k.zsh
