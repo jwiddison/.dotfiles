@@ -31,7 +31,7 @@ colorscheme material
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:material_terminal_italics = 1
 " Material them style options: 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-let g:material_theme_style = 'palenight'
+let g:material_theme_style = 'default'
 
 " Theme
 command! Light :colorscheme onehalflight
