@@ -17,7 +17,7 @@ alias stardust="dev && cd stardust/"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
 alias vela="dev && cd vela/"
-alias vexpulsar="expulsar & v"
+alias vexpulsar="expulsar && v"
 alias vvela="vela && v"
 
 ## Divvy-Specific Functions
@@ -76,6 +76,7 @@ alias documents="cd ~/Documents/"
 alias downloads="cd ~/Downloads/"
 alias erlangv="erl -eval '{ok, Version} = file:read_file(filename:join([code:root_dir(), \"releases\", erlang:system_info(otp_release), \"OTP_VERSION\"])), io:fwrite(Version), halt()' -noshell"
 alias export-vscode-extension="code --list-extensions | xargs -L 1 echo code --install-extension"
+alias gap="git add -p"
 alias gb="git branch"
 alias gco="git checkout"
 alias getcurrentip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
@@ -84,7 +85,9 @@ alias gitlog="git log --oneline --graph --decorate --all"
 alias gp="git push origin HEAD"
 alias gpom="git pull origin master"
 alias gs="git status"
+alias k="kubectl"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
+alias kns="kubens"
 alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 # gls depends on CoreUtils being brew installed 
 alias ls="gls -alF --group-directories-first --color=auto"
@@ -121,11 +124,22 @@ compinit
 ## ZSH
 # Zsh autocomplete
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Configure NerdFonts and Powerlevel9k
 POWERLEVEL9K_MODE='nerdfont-complete'
 source ~/.powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
+
+# Custom prompt for showing current elixir version
+# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION="echo   $(elixir -v | grep Elixir | awk '{print $2}')"
+# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION_BACKGROUND="purple"
+# POWERLEVEL9K_CUSTOM_ELIXIR_VERSION_FOREGROUND="white"
+
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext)
 
 plugins=(autojump)
 
