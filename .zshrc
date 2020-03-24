@@ -97,6 +97,7 @@ alias lightline="v ~/.dotfiles/vim/.vimrc-lightline"
 # alias ls="gls -alF --group-directories-first --color=auto"
 alias ls="ls -alFG"
 alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
+alias powerline="v ~/.p10k.zsh"
 alias pr="dopen p"
 alias reloadzsh="source ~/.zshrc"
 alias see-kitty-themes="open https://github.com/dexpota/kitty-themes#user-content-3024-day"
@@ -134,11 +135,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Configure powerlevel prompt
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Powerlevel10k
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
+
+# Configure powerlevel prompt
+source ~/.dotfiles/.p10k.zsh
 
 # Kubernetes
 export TILLER_NAMESPACE=default
