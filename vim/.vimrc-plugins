@@ -86,7 +86,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'kaicataldo/material.vim'
 
 call vundle#end()

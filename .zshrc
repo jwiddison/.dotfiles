@@ -14,6 +14,7 @@ alias stardust="dev && cd stardust/"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
 alias vela="dev && cd vela/"
+alias vcash="cash && v"
 alias vexpulsar="expulsar && v"
 alias vvela="vela && v"
 
