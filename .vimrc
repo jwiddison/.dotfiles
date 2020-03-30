@@ -31,6 +31,7 @@ source ~/.dotfiles/vim/.vimrc-lightline
 colorscheme material
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:material_terminal_italics = 1
+" let g:material_theme_style = 'lighter'
 let g:material_theme_style = 'palenight'
 
 fun! s:lumos()
@@ -48,35 +49,29 @@ runtime macros/matchit.vim
 
 set autoread
 set autowrite
+set backspace=indent,eol,start
 set encoding=utf-8
 set hlsearch
+set directory=~/.vim/backups " Tell VIM where to put swp files
 set ignorecase
+set lazyredraw
 set mouse=a
 set nowrap
 set number
 set showmatch
-set smartcase
-set lazyredraw
 set showtabline=2
+set smartcase
+set splitbelow " Horizontal splits open below
+set splitright " Vertical splits open to right
 set termguicolors
 set ttyfast
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" Turn backups and swaps off
-set nobackup
-set nowritebackup
-set noswapfile
-set backspace=indent,eol,start
-
-" Turns on persistant history
+" Persistant History
 set undodir=~/.vimundodir
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=1000 "maximum number lines to save for undo on a buffer reload"
-
-" New split panes open to the right if vertical and below if horizontal
-set splitright
-set splitbelow 
 
 " Autosave a file when losing focus
 au FocusLost * :wa

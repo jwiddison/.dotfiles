@@ -20,10 +20,18 @@ alias vvela="vela && v"
 
 ## Divvy-Specific Functions
 
-function change_kitty_theme {
+function change-kitty-theme {
   # See themes at: https://github.com/dexpota/kitty-themes#user-content-3024-day
   rm ~/.config/kitty/theme.conf
   ln -s ./kitty-themes/themes/$1.conf ~/.config/kitty/theme.conf
+}
+
+function kitty-light {
+  change-kitty-theme AtomOneLight
+}
+
+function kitty-dark {
+  change-kitty-theme Misterioso
 }
 
 function ci {
@@ -95,7 +103,7 @@ alias powerline="v ~/.dotfiles/.p10k.zsh"
 alias pr="dopen p"
 alias reloadzsh="source ~/.zshrc"
 alias rollback="mix ecto.rollback"
-alias see-kitty-themes="open https://github.com/dexpota/kitty-themes#user-content-3024-day"
+alias see-kitty-themes="open https://github.com/dexpota/kitty-themes"
 alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
