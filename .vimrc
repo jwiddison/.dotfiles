@@ -27,7 +27,7 @@ source ~/.dotfiles/vim/.vimrc-lightline
 " ====  User Settings  ====
 " =========================
 
-" Colorscheme stuff
+" Colorscheme
 colorscheme material
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:material_terminal_italics = 1
@@ -47,25 +47,30 @@ command! Nox call s:nox() | source ~/.vimrc
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim
 
-set autoread
-set autowrite
-set backspace=indent,eol,start
-set encoding=utf-8
-set hlsearch
+" Settings
+set autoread " Read file from disk when vim gains focus
+set autowrite " Auto write file to disc on certain commands
+set backspace=indent,eol,start " Let's backspace behave how you'd expect
 set directory=~/.vim/backups " Tell VIM where to put swp files
-set ignorecase
-set lazyredraw
-set mouse=a
-set nowrap
-set number
-set showmatch
-set showtabline=2
-set smartcase
+set encoding=utf-8
+set expandtab " Insert 2 space chars when pressing tab
+set hlsearch " When there is a previous search pattern, highlight all its matches. 
+set ignorecase " Ignore case in search patterns TODO: might not need this
+set lazyredraw " Screen will not be redrawn when executing macros
+set mouse=a " A little bit of mouse support because I am a heathan
+set nowrap " Dont' wrap lines
+set number " Show line numbers
+set shiftwidth=2 " Move two spaces when changing indentation with < or >
+set showmatch " When you insert a bracket, breifly jump to closing one
+set showtabline=2 " Always show the tabline at the top of the window
+set smartcase " When searching in a buffer, be smart about the case of the search term
+set softtabstop=2 " Make tabs two spaces
 set splitbelow " Horizontal splits open below
 set splitright " Vertical splits open to right
-set termguicolors
-set ttyfast
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set tabstop=2 " Make tabs two spaces
+set termguicolors " Make themes look nice
+set ttyfast " Improves redrawing when you delete a line
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 
 " Persistant History
 set undodir=~/.vimundodir
@@ -148,22 +153,22 @@ map <leader>n :Ranger<CR>
 
 " Toggles relativenumber on and off.
 function! RelativeNumberToggle()
-    if(&relativenumber == 1)
-        set number
-        set norelativenumber
-    else
-        set relativenumber
-    endif
+  if(&relativenumber == 1)
+    set number
+    set norelativenumber
+  else
+    set relativenumber
+  endif
 endfunction
 map <Leader>r :call RelativeNumberToggle()<CR>
 
 " Toggles line numbers on and off.
 function! NumberToggle()
-    if(&number == 1)
-        set nonumber
-    else
-        set number
-    endif
+  if(&number == 1)
+    set nonumber
+  else
+    set number
+  endif
 endfunction
 map <Leader>R :call NumberToggle()<CR>
 
@@ -194,19 +199,15 @@ nnoremap <C-h> :tabclose<CR>
 nnoremap <C-o> :bp<CR>
 nnoremap <C-i> :bn<CR>
 
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  " set grepprg=ag\ --nogroup\ --nocolor
-  set grepprg=ag\ --nogroup
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-" Ag
-" bind K to grep word under cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap \ :Ag<SPACE>
-
+" " The Silver Searcher
+" if executable('ag')
+"   " Use ag over grep
+"   set grepprg=ag\ --nogroup
+"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   " ag is fast enough that CtrlP doesn't need to cache
+"   let g:ctrlp_use_caching = 0
+" endif
+" nnoremap \ :Ag<SPACE>
+" TODO: trying a new thing for global search.
+nnoremap <silent> <Leader>f :grep! -Rin --exclude-dir={.git,node_modules,tmp,log,deps,_build,.elixir_ls} <cword> .<Cr>:cw<Cr>
