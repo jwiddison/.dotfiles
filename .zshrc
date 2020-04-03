@@ -10,6 +10,7 @@ alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
 alias rfc="dev && cd eng-request-for-change/"
+alias pulsar-admin="docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" | grep 'apachepulsar/pulsar[^-dashboard]' | awk '{ print $2 }') bin/pulsar-admin"
 alias stardust="dev && cd stardust/"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
@@ -59,10 +60,19 @@ function junoup {
   mix deps.get
 }
 
-function pulsar-admin {
-  docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" |
-  grep apachepulsar/pulsar |
-  awk '{ print $2 }') bin/pulsar-admin
+function setup-pulsar-topics {
+	echo "Tenant: divvy"
+	pulsar-admin tenants create divvy
+	echo "Namespace: divvy-events"
+	pulsar-admin namespaces create divvy/divvy-events
+	echo "Namespace: divvy-queues"
+	pulsar-admin namespaces create divvy/divvy-queues
+	echo "Topic: ACH created"
+	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-events/cash-accounts-ach-created --partitions 4
+	echo "Topic: ACH status changed"
+	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-events/cash-accounts-ach-status-changed --partitions 4
+	echo "Topic: CRB ACH created"
+	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-queues/cash-accounts-crb-ach-created --partitions 4
 }
 
 function startpulsar {
