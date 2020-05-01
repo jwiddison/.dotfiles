@@ -6,7 +6,7 @@
 alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
 alias dev="cd ~/Dev/"
-alias divvy-protos="div && cd elixir_divvy_protobuf/"
+alias divvy-protos="dev && cd elixir_divvy_protobuf/"
 alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
