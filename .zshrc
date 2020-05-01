@@ -3,9 +3,10 @@
 ###############
 
 ## Divvy-Specific ##
-alias cash="dev && cd cash-accounts/"
+alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
 alias dev="cd ~/Dev/"
+alias divvy-protos="div && cd elixir_divvy_protobuf/"
 alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
@@ -17,7 +18,6 @@ alias tmp="dev && cd tmp/"
 alias vela="dev && cd vela/"
 alias vcash="cash && v"
 alias vexpulsar="expulsar && v"
-alias vvela="vela && v"
 
 ## Divvy-Specific Functions
 
@@ -82,6 +82,7 @@ function startpulsar {
 }
 
 ## System-wide ##
+alias a="tmux a"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
@@ -140,7 +141,7 @@ export EDITOR="/usr/local/bin/nvim"
 export VISUAL="$EDITOR"
 
 # Make tmux happy
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 ## ASDF
 autoload -Uz compinit
