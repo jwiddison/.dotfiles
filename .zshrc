@@ -4,6 +4,7 @@
 
 # Bring in functions
 source ~/.dotfiles/zsh/.zshrc.functions
+source ~/.dotfiles/zsh/.zshrc.just-for-fun
 
 ###############
 ### Aliases ###
@@ -47,8 +48,8 @@ alias gco="git checkout"
 alias getcurrentip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias git-log-with-dates="git log --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
 alias gitlog="git log --oneline --graph --decorate --all"
-alias gp="git push origin HEAD"
 alias gpom="git pull origin master"
+alias gpush="git push origin HEAD"
 alias gs="git status"
 alias k="kubectl"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
