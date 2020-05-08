@@ -1,88 +1,35 @@
+#######################
+### Jordan Widdison ###
+#######################
+
+# Bring in functions
+source ~/.dotfiles/zsh/.zshrc.functions
+
 ###############
 ### Aliases ###
 ###############
 
-## Divvy-Specific ##
+## Divvy ##
 alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
 alias dev="cd ~/Dev/"
-alias divvy-protos="dev && cd elixir_divvy_protobuf/"
+alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
+alias divvy-protos="dev && cd divvy-protobuf/"
 alias dotfiles="cd ~/.dotfiles/"
 alias expulsar="dev && cd ex_pulsar/"
 alias juno="dev && cd juno/"
-alias rfc="dev && cd eng-request-for-change/"
 alias pulsar-admin="docker exec -it $(docker ps --format "{{ .Image }} {{ .ID }}" | grep 'apachepulsar/pulsar[^-dashboard]' | awk '{ print $2 }') bin/pulsar-admin"
+alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias start-cash-session="~/.dotfiles/tmux/cash-startup.sh"
+alias start-expulsar-session="~/.dotfiles/tmux/expulsar-startup.sh"
+alias start-vela-session="~/.dotfiles/tmux/vela-startup.sh"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
-alias vela="dev && cd vela/"
 alias vcash="cash && v"
-alias vexpulsar="expulsar && v"
+alias vela="dev && cd vela/"
 
-## Divvy-Specific Functions
-
-function change-kitty-theme {
-  # See themes at: https://github.com/dexpota/kitty-themes#user-content-3024-day
-  rm ~/.config/kitty/theme.conf
-  ln -s ./kitty-themes/themes/$1.conf ~/.config/kitty/theme.conf
-}
-
-function kitty-light {
-  change-kitty-theme AtomOneLight
-}
-
-function kitty-dark {
-  change-kitty-theme Misterioso
-}
-
-function ci {
-  echo "Formatting:\n"
-  mix format
-  echo "Checking Formatting:\n"
-  mix format --check-formatted
-  echo "Linting:\n"
-  mix credo
-  echo "Security:\n"
-  mix sobelow
-  echo "Testing:\n"
-  mix test
-  echo "Dialyzer:\n"
-  mix dialyzer
-}
-
-function junoup {
-  echo "Getting environment variables:\n"
-  export $(cat .env | xargs)
-  echo "DONE\n"
-  echo "Setting up Postgres:\n"
-  startpg
-  echo "Getting deps:\n"
-  mix deps.get
-}
-
-function setup-pulsar-topics {
-	echo "Tenant: divvy"
-	pulsar-admin tenants create divvy
-	echo "Namespace: divvy-events"
-	pulsar-admin namespaces create divvy/divvy-events
-	echo "Namespace: divvy-queues"
-	pulsar-admin namespaces create divvy/divvy-queues
-	echo "Topic: ACH created"
-	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-events/cash-accounts-ach-created --partitions 4
-	echo "Topic: ACH status changed"
-	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-events/cash-accounts-ach-status-changed --partitions 4
-	echo "Topic: CRB ACH created"
-	pulsar-admin topics create-partitioned-topic persistent://divvy/divvy-queues/cash-accounts-crb-ach-created --partitions 4
-}
-
-function startpulsar {
-  expulsar
-  echo "Starting Pulsar:\n"
-  docker-compose -f .pkg/docker-compose.yml up -d pulsar
-}
-
-## System-wide ##
+## System ##
 alias a="tmux a"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
@@ -113,7 +60,7 @@ alias n="ranger"
 alias plugins="v ~/.dotfiles/vim/.vimrc-plugins"
 alias powerline="v ~/.dotfiles/.p10k.zsh"
 alias pr="dopen p"
-alias reloadzsh="source ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias rollback="mix ecto.rollback"
 alias see-kitty-themes="open https://github.com/dexpota/kitty-themes"
 alias tmux-conf="v ~/.dotfiles/.tmux.conf"
@@ -141,9 +88,6 @@ alias rsp2="bundle exec rails s -p 3002"
 # Always use nvim
 export EDITOR="/usr/local/bin/nvim"
 export VISUAL="$EDITOR"
-
-# Make tmux happy
-# export TERM="xterm-256color"
 
 ## ASDF
 autoload -Uz compinit
