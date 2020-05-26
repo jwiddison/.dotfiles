@@ -24,10 +24,11 @@ alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias start-cash-session="~/.dotfiles/tmux/cash-startup.sh"
 alias start-expulsar-session="~/.dotfiles/tmux/expulsar-startup.sh"
+alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-vela-session="~/.dotfiles/tmux/vela-startup.sh"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
-alias vcash="cash && v"
+alias underwriting="dev && cd underwriting/ && source .env"
 alias vela="dev && cd vela/"
 
 ## System ##
