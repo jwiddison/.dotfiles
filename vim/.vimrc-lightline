@@ -1,3 +1,7 @@
+" Colorscheme
+let g:lightline = {}
+let g:lightline.colorscheme = "material_vim"
+
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
 nnoremap <silent> <RIGHT> :cnext<CR>
