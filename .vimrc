@@ -35,9 +35,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
 
-colorscheme miramare
-let g:miramare_enable_italic = 1
-let g:miramare_transparent_background = 1
+" colorscheme miramare
+" let g:miramare_enable_italic = 1
+" let g:miramare_transparent_background = 1
 
 fun! s:lumos()
   let g:material_theme_style = 'lighter'
