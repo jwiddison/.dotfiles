@@ -65,10 +65,10 @@ Plugin 'itchyny/lightline.vim'
 
 " JavaScript
 " Plugin 'elzr/vim-json'
-" Plugin 'isRuslan/vim-es6'
-" Plugin 'maxmellon/vim-jsx-pretty'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
