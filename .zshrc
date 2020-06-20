@@ -1,16 +1,12 @@
-#######################
-### Jordan Widdison ###
-#######################
+# ============================================================================ #
+# ==== .zshrc - Jordan Widdison ============================================== #
+# ============================================================================ #
 
-# Bring in functions
-source ~/.dotfiles/zsh/.zshrc.functions
-source ~/.dotfiles/zsh/.zshrc.just-for-fun
+################################################################################
+# Aliases 
+################################################################################
 
-###############
-### Aliases ###
-###############
-
-## Divvy ##
+### Work #######################################################################
 alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
 alias dev="cd ~/Dev/"
@@ -27,11 +23,22 @@ alias start-cash-session="~/.dotfiles/tmux/cash-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias startpg="./.pkg/dev/start-database.sh"
 alias tmp="dev && cd tmp/"
+alias u="underwriting"
 alias under="underwriting"
 alias underwriting="dev && cd underwriting/ && source .env"
 alias vela="dev && cd vela/"
 
-## System ##
+function junoup {
+  echo "Getting environment variables:\n"
+  export $(cat .env | xargs)
+  echo "DONE\n"
+  echo "Setting up Postgres:\n"
+  startpg
+  echo "Getting deps:\n"
+  mix deps.get
+}
+
+### System #####################################################################
 alias a="tmux a"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
@@ -58,6 +65,7 @@ alias migrate="mix ecto.migrate"
 alias n="ranger"
 alias pr="dopen p"
 alias reload="source ~/.zshrc"
+alias reload-tmux="tmux source-file ~/.tmux.conf"
 alias reloadzsh="reload"
 alias rollback="mix ecto.rollback"
 alias undo-last-commit="git reset --hard HEAD~1"
@@ -67,7 +75,7 @@ alias v="nvim"
 alias vimrc="v ~/.dotfiles/.vimrc"
 alias zshrc="v ~/.dotfiles/.zshrc"
 
-## Rails ##
+### Rails ######################################################################
 alias dbfullreset="bundle exec rails db:drop db:create db:migrate db:seed db:fixtures:load"
 alias kill-rails='kill -9 $(lsof -i tcp:3000 -t)'
 alias rails_migrate="bundle exec rails db:migrate"
@@ -77,15 +85,33 @@ alias rsb="bundle exec rails s -b 0.0.0.0"
 alias rsp="bundle exec rails s -p 3001"
 alias rsp2="bundle exec rails s -p 3002"
 
-####################
-### Other Config ###
-####################
+### Functions ##################################################################
+function credo {
+  echo "Linting:\n"
+  mix credo
+  echo "Linting Test Files:\n"
+  mix credo -C tests
+}
+
+function ci {
+  echo "Formatting:\n"
+  mix format
+  echo "Checking Formatting:\n"
+  mix format --check-formatted
+  credo()
+  echo "Testing:\n"
+  mix test
+}
+
+################################################################################
+# Other Config
+################################################################################
 
 # Always use nvim
 export EDITOR="/usr/local/bin/nvim"
 export VISUAL="$EDITOR"
 
-## ASDF
+# ASDF
 autoload -Uz compinit
 compinit
 . $HOME/.asdf/asdf.sh

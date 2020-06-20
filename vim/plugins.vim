@@ -87,7 +87,8 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 Plugin 'kaicataldo/material.vim'
-Plugin 'franbach/miramare'
+Plugin 'ghifarit53/tokyonight.vim'
+Plugin 'kyoz/purify', {'rtp': 'vim'}
 
 call vundle#end()
 filetype plugin indent on

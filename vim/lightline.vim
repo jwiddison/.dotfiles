@@ -1,6 +1,9 @@
 " Colorscheme
 let g:lightline = {}
-let g:lightline.colorscheme = "material_vim"
+" let g:lightline.colorscheme = 'material_vim'
+" let g:lightline.colorscheme = 'tokyonight'
+let g:lightline.colorscheme = 'purify'
+" let g:lightline.colorscheme = 'gruvbox'
 
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>

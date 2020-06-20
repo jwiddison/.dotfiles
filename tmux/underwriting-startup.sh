@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SESSION="Underwriting  "
+SESSION="Underwriting"
 SESSIONEXISTS=$(tmux list-sessions | grep "${SESSION}")
 
 if [ "$SESSIONEXISTS" = "" ]

@@ -3,12 +3,13 @@
 " ==================================
 
 " Plugins
-source ~/.dotfiles/vim/.vimrc-plugins
+source ~/.dotfiles/vim/plugins.vim
 
 " ==========================
 " ==== Package Settings ====
 " ==========================
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:ctrlp_custom_ignore = '\v\.(svg|jpeg|jpg|JPG|png|git|hg|svn|\.yardoc\|public\/images\|node_modules|public\/system\|data\|log\|tmp$|deps|build)$'
 let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
@@ -23,31 +24,31 @@ let g:vitality_insert_cursor = 2
 let test#strategy = "neomake"
 
 " Lightline Config
-source ~/.dotfiles/vim/.vimrc-lightline
+source ~/.dotfiles/vim/lightline.vim
 
 " =========================
 " ====  User Settings  ====
 " =========================
 
-" Colorscheme
-colorscheme material
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'palenight'
+" " Colorscheme
+" let g:material_terminal_italics = 1
+" let g:material_theme_style = 'palenight'
+" colorscheme material
+"
+" fun! s:lumos()
+"   let g:material_theme_style = 'lighter'
+" endfun
+" command! Lumos call s:lumos() | source ~/.vimrc
+"
+" fun! s:nox()
+"   let g:material_theme_style = 'palenight'
+" endfun
+" command! Nox call s:nox() | source ~/.vimrc
 
-" colorscheme miramare
-" let g:miramare_enable_italic = 1
-" let g:miramare_transparent_background = 1
-
-fun! s:lumos()
-  let g:material_theme_style = 'lighter'
-endfun
-command! Lumos call s:lumos() | source ~/.vimrc
-
-fun! s:nox()
-  let g:material_theme_style = 'palenight'
-endfun
-command! Nox call s:nox() | source ~/.vimrc
+let g:tokyonight_enable_italic = 0 
+let g:tokyonight_disable_italic_comment = 1
+let g:tokyonight_style = 'storm' " available: night, storm
+colorscheme tokyonight
 
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim
