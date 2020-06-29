@@ -45,6 +45,7 @@ alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
 alias dc="docker-compose"
+alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
 alias desktop="cd ~/Desktop/"
 alias documents="cd ~/Documents/"
 alias downloads="cd ~/Downloads/"
@@ -76,7 +77,7 @@ alias vimrc="v ~/.dotfiles/.vimrc"
 alias zshrc="v ~/.dotfiles/.zshrc"
 
 ### Rails ######################################################################
-alias dbfullreset="bundle exec rails db:drop db:create db:migrate db:seed db:fixtures:load"
+# alias dbfullreset="bundle exec rails db:drop db:create db:migrate db:seed db:fixtures:load"
 alias kill-rails='kill -9 $(lsof -i tcp:3000 -t)'
 alias rails_migrate="bundle exec rails db:migrate"
 alias rc="bundle exec rails c"
@@ -98,7 +99,10 @@ function ci {
   mix format
   echo "Checking Formatting:\n"
   mix format --check-formatted
-  credo()
+  echo "Linting:\n"
+  mix credo
+  echo "Linting Test Files:\n"
+  mix credo -C tests
   echo "Testing:\n"
   mix test
 }

@@ -63,12 +63,12 @@ Plugin 'ryanoasis/vim-devicons'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
-" JavaScript
+" " JavaScript
 " Plugin 'elzr/vim-json'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/yajs.vim'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'maxmellon/vim-jsx-pretty'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'othree/yajs.vim'
+" Plugin 'pangloss/vim-javascript'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
