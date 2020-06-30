@@ -30,21 +30,7 @@ source ~/.dotfiles/vim/lightline.vim
 " ====  User Settings  ====
 " =========================
 
-" " Colorscheme
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'palenight'
-" colorscheme material
-"
-" fun! s:lumos()
-"   let g:material_theme_style = 'lighter'
-" endfun
-" command! Lumos call s:lumos() | source ~/.vimrc
-"
-" fun! s:nox()
-"   let g:material_theme_style = 'palenight'
-" endfun
-" command! Nox call s:nox() | source ~/.vimrc
-
+" Colorscheme
 let g:tokyonight_enable_italic = 0 
 let g:tokyonight_disable_italic_comment = 1
 let g:tokyonight_style = 'storm' " available: night, storm
@@ -57,12 +43,12 @@ runtime macros/matchit.vim
 set autoread " Read file from disk when vim gains focus
 set autowrite " Auto write file to disc on certain commands
 set backspace=indent,eol,start " Let's backspace behave how you'd expect
+set colorcolumn=120 " Sets the line length indicator at column 120
 set directory=~/.vim/backups " Tell VIM where to put swp files
-set colorcolumn=120
-set encoding=utf-8
+set encoding=utf-8 " UTF-8 Support
 set expandtab " Insert 2 space chars when pressing tab
 set hlsearch " When there is a previous search pattern, highlight all its matches. 
-set ignorecase " Ignore case in search patterns TODO: might not need this
+set ignorecase " Ignore case in search patterns
 set lazyredraw " Screen will not be redrawn when executing macros
 set mouse=a " A little bit of mouse support because I am a heathan
 set nowrap " Dont' wrap lines
@@ -77,13 +63,11 @@ set splitright " Vertical splits open to right
 set tabstop=2 " Make tabs two spaces
 set termguicolors " Make themes look nice
 set ttyfast " Improves redrawing when you delete a line
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
-
-" Persistant History
-set undodir=~/.vimundodir
-set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=1000 "maximum number lines to save for undo on a buffer reload"
+set undodir=~/.vimundodir " Where to save undo files
+set undofile " Turn on saving undo history
+set undolevels=1000 " Maximum number of changes that can be undone
+set undoreload=1000 " Maximum number lines to save for undo on a buffer reload"
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip " Default set of files to ignore for CtrlP
 
 " Autosave a file when losing focus
 au FocusLost * :wa
@@ -108,15 +92,16 @@ map <Leader>Q :q!<CR>
 " Redo
 map <Leader>u <C-r>
 
-" Fuzzy finder (ctrlp)
+" Fuzzy finder (CtrlP)
 map <Leader>t <C-p>
 
-" Source your vimrc if you want
+" Source .vimrc 
 map <Leader>a :source ~/.vimrc<CR>
 
 " Git
 map <Leader>b :Gblame<CR>
 map <Leader>c :GitGutterNextHunk<CR>
+
 " Override default gitgutter mappings that collide
 nmap <Leader>;p <Plug>(GitGutterPreviewHunk)
 nmap <Leader>;u <Plug>(GitGutterUndoHunk)
@@ -129,7 +114,7 @@ map <Leader>z :term<CR>
 " Get out of nvim terminal back to normal mode
 :tnoremap <Esc> <C-\><C-n>
 
-" system clipboards
+" System Clipboards
 map <Leader>y "*y
 map <Leader>d "+d
 map <Leader>p "+p
@@ -138,8 +123,7 @@ map <Leader>P "+P
 " Run tests
 nmap <leader>, :TestNearest<CR>
 nmap <leader>. :TestFile<CR>
-" TODO: come back to this mapping
-nmap <leader>.. :TestLast<CR>
+nmap <leader>/ :TestLast<CR>
 
 " Move lines up and down
 " It might look weird, but those are option + j and option + k for down and up
@@ -216,5 +200,3 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 nnoremap \ :Ag<SPACE>
-" TODO: trying a new thing for global search.
-" nnoremap <silent> <Leader>f :grep! -Rin --exclude-dir={.git,node_modules,tmp,log,deps,_build,.elixir_ls} <cword> .<Cr>:cw<Cr>
