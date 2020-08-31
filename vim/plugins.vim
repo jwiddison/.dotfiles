@@ -53,22 +53,20 @@ Plugin 'tpope/vim-endwise'
 " Bracket Pair Colorizer
 Plugin 'luochen1990/rainbow'
 
-" File Explorer
+" File Explorer(s)
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'tpope/vim-vinegar'
-
-" File Icons
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'preservim/nerdtree'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
-" " JavaScript
-" Plugin 'elzr/vim-json'
-" Plugin 'maxmellon/vim-jsx-pretty'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'othree/yajs.vim'
-" Plugin 'pangloss/vim-javascript'
+" JavaScript
+Plugin 'elzr/vim-json'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -86,9 +84,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'kaicataldo/material.vim'
 Plugin 'ghifarit53/tokyonight.vim'
 Plugin 'kyoz/purify', {'rtp': 'vim'}
+
+" File Icons
+" NOTE: Needs to go last
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on

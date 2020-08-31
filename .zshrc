@@ -15,6 +15,8 @@ alias divvy-protos="dev && cd divvy-protobuf/"
 alias dotfiles="cd ~/.dotfiles/"
 alias go="start-underwriting-session"
 alias juno="dev && cd juno/"
+alias onboarding="dev && cd onboarding/ && source .env"
+alias pii="dev && cd pii/"
 alias rfc="dev && cd eng-request-for-change/"
 alias rg="~/.dotfiles/tmux/home-dev-startup.sh"
 alias ride-guides="dev && cd ride_guides_api/"
@@ -22,6 +24,7 @@ alias stardust="dev && cd stardust/"
 alias start-cash-session="~/.dotfiles/tmux/cash-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias startpg="./.pkg/dev/start-database.sh"
+alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias tmp="dev && cd tmp/"
 alias u="underwriting"
 alias under="underwriting"
@@ -89,9 +92,9 @@ alias rsp2="bundle exec rails s -p 3002"
 ### Functions ##################################################################
 function credo {
   echo "Linting:\n"
-  mix credo
+  mix credo --strict
   echo "Linting Test Files:\n"
-  mix credo -C tests
+  mix credo -C tests --strict
 }
 
 function ci {
@@ -100,9 +103,9 @@ function ci {
   echo "Checking Formatting:\n"
   mix format --check-formatted
   echo "Linting:\n"
-  mix credo
+  mix credo --strict
   echo "Linting Test Files:\n"
-  mix credo -C tests
+  mix credo -C tests --strict
   echo "Testing:\n"
   mix test
 }

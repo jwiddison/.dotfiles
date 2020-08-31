@@ -12,6 +12,12 @@ then
 
   tmux new-window -t "${SESSION}":1 -n " "
   tmux send-keys -t " " "underwriting" C-m "clear" C-m
+
+  tmux new-window -t "${SESSION}":2 -n "Onboarding"
+  tmux send-keys -t "Onboarding" "onboarding" C-m "clear" C-m
+
+  tmux new-window -t "${SESSION}":3 -n "TEAMSPACES"
+  tmux send-keys -t "TEAMSPACES" "clear" C-m
 fi
 
 tmux attach-session -t "${SESSION}":0
