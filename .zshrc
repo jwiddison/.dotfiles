@@ -13,6 +13,7 @@ alias community="dev && cd community/"
 alias dev="cd ~/Dev/"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
+alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
 alias dotfiles="cd ~/.dotfiles/"
 alias go="start-underwriting-session"
 alias juno="dev && cd juno/"
@@ -24,12 +25,12 @@ alias ride-guides="dev && cd ride_guides_api/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
-alias startpg="./.pkg/dev/start-database.sh"
+alias start-juno-pg="./.pkg/dev/start-database.sh"
 alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias tmp="dev && cd tmp/"
 alias u="underwriting"
-alias under="underwriting"
 alias underwriting="dev && cd underwriting/ && source .env"
+alias uw="underwriting"
 alias vela="dev && cd vela/"
 
 function junoup {
@@ -37,9 +38,33 @@ function junoup {
   export $(cat .env | xargs)
   echo "DONE\n"
   echo "Setting up Postgres:\n"
-  startpg
+  start-juno-pg
   echo "Getting deps:\n"
   mix deps.get
+}
+
+function uwup {
+  BLUE='\033[0;34m'
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  SEPARATOR='--------------------------------------------\n'
+
+  echo -e "\n${GREEN}${SEPARATOR}SETTING UP UNDERWRITING\n${SEPARATOR}${NC}"
+  cd ~/Dev/underwriting
+  source .env
+  echo -e "\n${BLUE}${SEPARATOR}STARTING POSTGRES\n${SEPARATOR}${NC}"
+  docker-compose -f .pkg/dev/docker-compose.yml up -d postgres
+  echo -e "\n${BLUE}${SEPARATOR}STARTING REDIS\n${SEPARATOR}${NC}"
+  docker-compose -f .pkg/dev/docker-compose.yml up -d redis
+  echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
+  cd ~/Dev/pii
+  ./bin/dev up -d
+  cd -
+  echo -e "\n${BLUE}${SEPARATOR}GETTING DEPS\n${SEPARATOR}${NC}"
+  mix deps.get
+  echo -e "\n${BLUE}${SEPARATOR}SETTING UP DATABASE\n${SEPARATOR}${NC}"
+  mix ecto.setup
+  echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
 }
 
 ### System #####################################################################
