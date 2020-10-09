@@ -9,7 +9,10 @@
 ### Work #######################################################################
 alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
-alias community="dev && cd community/ && source .env"
+alias community="dev && cd community-project/"
+alias community-admin="dev && cd community-project/community-admin/"
+alias community-api="dev && cd community-project/community/ && source .env"
+alias community-mobile="dev && cd community-project/community-mobile/"
 alias dev="cd ~/Dev/"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
