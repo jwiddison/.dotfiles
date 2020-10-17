@@ -26,8 +26,9 @@ alias rg="~/.dotfiles/tmux/home-dev-startup.sh"
 alias ride-guides="dev && cd ride_guides_api/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
-alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-juno-pg="./.pkg/dev/start-database.sh"
+alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
+alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias tmp="dev && cd tmp/"
 alias u="underwriting"
@@ -60,6 +61,8 @@ function uwup {
   docker-compose -f .pkg/dev/docker-compose.yml up -d postgres
   echo -e "\n${BLUE}${SEPARATOR}STARTING REDIS\n${SEPARATOR}${NC}"
   docker-compose -f .pkg/dev/docker-compose.yml up -d redis
+  echo -e "\n${BLUE}${SEPARATOR}STARTING KAFKA\n${SEPARATOR}${NC}"
+  docker-compose -f .pkg/dev/docker-compose.yml up -d kafka-cannonball kafka-connect-ui kafka-ui
   echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
   cd ~/Dev/pii
   ./bin/dev up -d
@@ -92,6 +95,7 @@ alias git-log-with-dates="git log --pretty=format:\"%h%x09%an%x09%ad%x09%s\""
 alias gitlog="git log --oneline --graph --decorate --all"
 alias gpom="git pull origin master"
 alias gs="git status"
+alias jw="dev && cd jw/"
 alias k="kubectl"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
 alias kns="kubens"

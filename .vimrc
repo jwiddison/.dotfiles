@@ -14,7 +14,7 @@ let g:ctrlp_custom_ignore = '\v\.(svg|jpeg|jpg|JPG|png|git|hg|svn|\.yardoc\|publ
 let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 let g:ctrlp_working_path_mode = 'ra'
-let g:indentLine_char = '|'
+let g:indentLine_char = '│'
 let g:neomake_open_list = 1
 let g:rainbow_active = 1
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
@@ -31,9 +31,11 @@ source ~/.dotfiles/vim/lightline.vim
 " =========================
 
 " Colorscheme
-let g:tokyonight_enable_italic = 0 
 let g:tokyonight_disable_italic_comment = 1
+let g:tokyonight_enable_italic = 0
+let g:tokyonight_menu_selection_background = 'red'
 let g:tokyonight_style = 'storm' " available: night, storm
+
 colorscheme tokyonight
 
 " Match opening/closing parens, brackets, etc
