@@ -86,6 +86,8 @@ Plugin 'airblade/vim-gitgutter'
 " Color scheme
 Plugin 'ghifarit53/tokyonight.vim'
 Plugin 'kyoz/purify', {'rtp': 'vim'}
+Plugin 'sonph/onehalf', {'rtp': 'vim'}
+Plugin 'embark-theme/vim', { 'as': 'embark' }
 
 " File Icons
 " NOTE: Needs to go last

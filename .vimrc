@@ -35,8 +35,14 @@ let g:tokyonight_disable_italic_comment = 1
 let g:tokyonight_enable_italic = 0
 let g:tokyonight_menu_selection_background = 'red'
 let g:tokyonight_style = 'storm' " available: night, storm
-
+let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
+
+let g:embark_terminal_italics = 1
+colorscheme embark
+
+" colorscheme onehalfdark
+" colorscheme onehalflight
 
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim
