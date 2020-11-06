@@ -134,16 +134,23 @@ function credo {
 }
 
 function ci {
-  echo "Formatting:\n"
+  BLUE='\033[0;34m'
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  SEPARATOR='--------------------------------------------\n'
+
+  echo -e "\n${GREEN}${SEPARATOR}RUNNING LOCAL CI\n${SEPARATOR}${NC}"
+  echo -e "\n${BLUE}${SEPARATOR}FORMATTING\n${SEPARATOR}${NC}"
   mix format
-  echo "Checking Formatting:\n"
+  echo -e "\n${BLUE}${SEPARATOR}CHECKING FORMATTING\n${SEPARATOR}${NC}"
   mix format --check-formatted
-  echo "Linting:\n"
+  echo -e "\n${BLUE}${SEPARATOR}LINTING\n${SEPARATOR}${NC}"
   mix credo --strict
-  echo "Linting Test Files:\n"
+  echo -e "\n${BLUE}${SEPARATOR}LINTING TEST FILES\n${SEPARATOR}${NC}"
   mix credo -C tests --strict
-  echo "Testing:\n"
+  echo -e "\n${BLUE}${SEPARATOR}TESTING\n${SEPARATOR}${NC}"
   mix test
+  echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
 }
 
 ################################################################################
