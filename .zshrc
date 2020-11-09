@@ -62,7 +62,8 @@ function uwup {
   echo -e "\n${BLUE}${SEPARATOR}STARTING REDIS\n${SEPARATOR}${NC}"
   docker-compose -f .pkg/dev/docker-compose.yml up -d redis
   echo -e "\n${BLUE}${SEPARATOR}STARTING KAFKA\n${SEPARATOR}${NC}"
-  docker-compose -f .pkg/dev/docker-compose.yml up -d kafka-cannonball kafka-connect-ui kafka-ui kafka
+  docker-compose -f .pkg/dev/docker-compose.yml up -d kafka
+  docker-compose -f .pkg/dev/docker-compose.yml up -d kafka-cannonball kafka-connect-ui kafka-ui
   echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
   cd ~/Dev/pii
   ./bin/dev up -d
