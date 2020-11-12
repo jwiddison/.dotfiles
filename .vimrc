@@ -4,6 +4,9 @@
 
 " Plugins
 source ~/.dotfiles/vim/plugins.vim
+ 
+" Lightline Config
+source ~/.dotfiles/vim/lightline.vim
 
 " ==========================
 " ==== Package Settings ====
@@ -23,58 +26,56 @@ let g:rehash256 = 1
 let g:vitality_insert_cursor = 2
 let test#strategy = "neomake"
 
-" Lightline Config
-source ~/.dotfiles/vim/lightline.vim
-
 " =========================
 " ====  User Settings  ====
 " =========================
 
-" Colorscheme
-let g:tokyonight_disable_italic_comment = 1
-let g:tokyonight_enable_italic = 0
-let g:tokyonight_menu_selection_background = 'red'
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_transparent_background = 1
-colorscheme tokyonight
+" let g:tokyonight_disable_italic_comment = 1
+" let g:tokyonight_enable_italic = 0
+" let g:tokyonight_menu_selection_background = 'red'
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_transparent_background = 1
+" colorscheme tokyonight
 
-let g:embark_terminal_italics = 1
-colorscheme embark
+" default | atlantis | andromeda | shusia | maia
+let g:sonokai_style = 'atlantis'
+let g:sonokai_disable_italic_comment = 1
+let g:sonokai_enable_italic = 0
+let g:sonokai_sign_column_background = 'none'
+let g:sonokai_menu_selection_background = 'red'
+let g:sonokai_lightline_diable_bold = 0
+colorscheme sonokai
 
-" colorscheme onehalfdark
-" colorscheme onehalflight
-
+set autoread                             " Read file from disk when vim gains focus
+set autowrite                            " Auto write file to disc on certain commands
+set backspace=indent,eol,start           " Let's backspace behave how you'd expect
+set colorcolumn=120                      " Sets the line length indicator at column 120
+set directory=~/.vim/backups             " Tell VIM where to put swp files
+set expandtab                            " Insert 2 space chars when pressing tab
+set hlsearch                             " When there is a previous search pattern, highlight all its matches. 
+set ignorecase                           " Ignore case in search patterns
+set lazyredraw                           " Screen will not be redrawn when executing macros
+set mouse=a                              " A little bit of mouse support because I am a heathan
+set nowrap                               " Dont' wrap lines
+set number                               " Show line numbers
+set shiftwidth=2                         " Move two spaces when changing indentation with < or >
+set showmatch                            " When you insert a bracket, breifly jump to closing one
+set showtabline=2                        " Always show the tabline at the top of the window
+set smartcase                            " When searching in a buffer, be smart about the case of the search term
+set softtabstop=2                        " Make tabs two spaces
+set splitbelow                           " Horizontal splits open below
+set splitright                           " Vertical splits open to right
+set tabstop=2                            " Make tabs two spaces
+set termguicolors                        " Make themes look nice
+set ttyfast                              " Improves redrawing when you delete a line
+set undodir=~/.vimundodir                " Where to save undo/swp files
+set undofile                             " Turn on saving undo history
+set undolevels=1000                      " Maximum number of changes that can be undone
+set undoreload=1000                      " Maximum number lines to save for undo on a buffer reload
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip " Default set of files to ignore for CtrlP
+ 
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim
-
-" Settings
-set autoread " Read file from disk when vim gains focus
-set autowrite " Auto write file to disc on certain commands
-set backspace=indent,eol,start " Let's backspace behave how you'd expect
-set colorcolumn=120 " Sets the line length indicator at column 120
-set directory=~/.vim/backups " Tell VIM where to put swp files
-set expandtab " Insert 2 space chars when pressing tab
-set hlsearch " When there is a previous search pattern, highlight all its matches. 
-set ignorecase " Ignore case in search patterns
-set lazyredraw " Screen will not be redrawn when executing macros
-set mouse=a " A little bit of mouse support because I am a heathan
-set nowrap " Dont' wrap lines
-set number " Show line numbers
-set shiftwidth=2 " Move two spaces when changing indentation with < or >
-set showmatch " When you insert a bracket, breifly jump to closing one
-set showtabline=2 " Always show the tabline at the top of the window
-set smartcase " When searching in a buffer, be smart about the case of the search term
-set softtabstop=2 " Make tabs two spaces
-set splitbelow " Horizontal splits open below
-set splitright " Vertical splits open to right
-set tabstop=2 " Make tabs two spaces
-set termguicolors " Make themes look nice
-set ttyfast " Improves redrawing when you delete a line
-set undodir=~/.vimundodir " Where to save undo files
-set undofile " Turn on saving undo history
-set undolevels=1000 " Maximum number of changes that can be undone
-set undoreload=1000 " Maximum number lines to save for undo on a buffer reload"
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " Default set of files to ignore for CtrlP
 
 " Autosave a file when losing focus
 au FocusLost * :wa

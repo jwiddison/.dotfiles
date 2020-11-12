@@ -29,6 +29,7 @@ alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
 alias start-juno-pg="./.pkg/dev/start-database.sh"
 alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
+alias start-uw="start-underwriting-session"
 alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias tmp="dev && cd tmp/"
 alias u="underwriting"
@@ -87,7 +88,6 @@ alias desktop="cd ~/Desktop/"
 alias documents="cd ~/Documents/"
 alias dotfiles="cd ~/.dotfiles/"
 alias downloads="cd ~/Downloads/"
-alias export-vscode-extension="code --list-extensions | xargs -L 1 echo code --install-extension"
 alias gap="git add -p"
 alias gb="git branch"
 alias gco="git checkout"
@@ -118,13 +118,16 @@ alias zshrc="v ~/.dotfiles/.zshrc"
 
 ### Rails ######################################################################
 # alias dbfullreset="bundle exec rails db:drop db:create db:migrate db:seed db:fixtures:load"
-alias kill-rails='kill -9 $(lsof -i tcp:3000 -t)'
-alias rails_migrate="bundle exec rails db:migrate"
-alias rc="bundle exec rails c"
-alias rs="bundle exec rails s"
-alias rsb="bundle exec rails s -b 0.0.0.0"
-alias rsp="bundle exec rails s -p 3001"
-alias rsp2="bundle exec rails s -p 3002"
+# alias kill-rails='kill -9 $(lsof -i tcp:3000 -t)'
+# alias rails_migrate="bundle exec rails db:migrate"
+# alias rc="bundle exec rails c"
+# alias rs="bundle exec rails s"
+# alias rsb="bundle exec rails s -b 0.0.0.0"
+# alias rsp="bundle exec rails s -p 3001"
+# alias rsp2="bundle exec rails s -p 3002"
+
+### Elixir #####################################################################
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 ### Functions ##################################################################
 function credo {

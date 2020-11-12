@@ -84,10 +84,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'ghifarit53/tokyonight.vim'
-Plugin 'kyoz/purify', {'rtp': 'vim'}
-Plugin 'sonph/onehalf', {'rtp': 'vim'}
-Plugin 'embark-theme/vim', { 'as': 'embark' }
+Plugin 'ghifarit53/tokyonight-vim'
+Plugin 'adrian5/oceanic-next-vim'
+Plugin 'sainnhe/sonokai'
 
 " File Icons
 " NOTE: Needs to go last
