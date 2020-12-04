@@ -30,26 +30,21 @@ let test#strategy = "neomake"
 " ====  User Settings  ====
 " =========================
 
-" let g:tokyonight_disable_italic_comment = 1
-" let g:tokyonight_enable_italic = 0
-" let g:tokyonight_menu_selection_background = 'red'
-" let g:tokyonight_style = 'storm' " available: night, storm
-" let g:tokyonight_transparent_background = 1
-" colorscheme tokyonight
-
-" default | atlantis | andromeda | shusia | maia
-let g:sonokai_style = 'atlantis'
-let g:sonokai_disable_italic_comment = 1
-let g:sonokai_enable_italic = 0
-let g:sonokai_sign_column_background = 'none'
-let g:sonokai_menu_selection_background = 'red'
-let g:sonokai_lightline_diable_bold = 0
-colorscheme sonokai
+let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_better_performance = 1
+let g:gruvbox_material_diagnostic_line_highlight = 0
+let g:gruvbox_material_disable_italic_comment = 1
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_menu_selection_background = 'blue' " all primary colors. Defaults to grey
+let g:gruvbox_material_palette = 'mix' " original, mix, or material
+let g:gruvbox_material_sign_column_background = 'default' " default or none. Doesn't matter if background is transparent
+let g:gruvbox_material_transparent_background = 1
+colorscheme gruvbox-material
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
 set backspace=indent,eol,start           " Let's backspace behave how you'd expect
-set colorcolumn=120                      " Sets the line length indicator at column 120
+" set colorcolumn=120                      " Sets the line length indicator at column 120
 set directory=~/.vim/backups             " Tell VIM where to put swp files
 set expandtab                            " Insert 2 space chars when pressing tab
 set hlsearch                             " When there is a previous search pattern, highlight all its matches. 

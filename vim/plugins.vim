@@ -84,9 +84,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'ghifarit53/tokyonight-vim'
-Plugin 'adrian5/oceanic-next-vim'
-Plugin 'sainnhe/sonokai'
+Plugin 'sainnhe/gruvbox-material'
 
 " File Icons
 " NOTE: Needs to go last

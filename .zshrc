@@ -49,6 +49,30 @@ function junoup {
   mix deps.get
 }
 
+function uwup-nokafka {
+  BLUE='\033[0;34m'
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  SEPARATOR='--------------------------------------------\n'
+
+  echo -e "\n${GREEN}${SEPARATOR}SETTING UP UNDERWRITING\n${SEPARATOR}${NC}"
+  cd ~/Dev/underwriting
+  source .env
+  echo -e "\n${BLUE}${SEPARATOR}STARTING POSTGRES\n${SEPARATOR}${NC}"
+  docker-compose -f .pkg/dev/docker-compose.yml up -d postgres
+  echo -e "\n${BLUE}${SEPARATOR}STARTING REDIS\n${SEPARATOR}${NC}"
+  docker-compose -f .pkg/dev/docker-compose.yml up -d redis
+  echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
+  cd ~/Dev/pii
+  ./bin/dev up -d
+  cd -
+  echo -e "\n${BLUE}${SEPARATOR}GETTING DEPS\n${SEPARATOR}${NC}"
+  mix deps.get
+  echo -e "\n${BLUE}${SEPARATOR}SETTING UP DATABASE\n${SEPARATOR}${NC}"
+  mix ecto.setup
+  echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
+}
+
 function uwup {
   BLUE='\033[0;34m'
   GREEN='\033[0;32m'
@@ -82,8 +106,8 @@ alias brewtree="brew deps --tree --installed"
 alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
-alias dc="docker-compose"
 alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
+alias dc="docker-compose"
 alias desktop="cd ~/Desktop/"
 alias documents="cd ~/Documents/"
 alias dotfiles="cd ~/.dotfiles/"
@@ -99,14 +123,15 @@ alias gs="git status"
 alias jw="dev && cd jw/"
 alias k="kubectl"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
+alias kittyconf="v ~/.dotfiles/kitty/kitty.conf"
 alias kns="kubens"
 alias last-commit-sha="git rev-parse HEAD | tr -d '[:space:]' | pbcopy && pbpaste"
 alias ls="ls -alFG"
 alias migrate="mix ecto.migrate"
 alias n="ranger"
 alias pr="dopen p"
-alias reload="source ~/.zshrc"
 alias reload-tmux="tmux source-file ~/.tmux.conf"
+alias reload="source ~/.zshrc"
 alias reloadzsh="reload"
 alias rollback="mix ecto.rollback"
 alias undo-last-commit="git reset --hard HEAD~1"

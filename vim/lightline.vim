@@ -4,7 +4,7 @@
 let g:lightline = {}
 
 " Colorscheme
-let g:lightline.colorscheme = 'sonokai'
+let g:lightline.colorscheme = 'gruvbox_material'
 
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
