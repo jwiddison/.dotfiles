@@ -44,7 +44,7 @@ colorscheme gruvbox-material
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
 set backspace=indent,eol,start           " Let's backspace behave how you'd expect
-" set colorcolumn=120                      " Sets the line length indicator at column 120
+set colorcolumn=120                      " Sets the line length indicator at column 120
 set directory=~/.vim/backups             " Tell VIM where to put swp files
 set expandtab                            " Insert 2 space chars when pressing tab
 set hlsearch                             " When there is a previous search pattern, highlight all its matches. 
