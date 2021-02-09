@@ -43,10 +43,10 @@ function junoup {
   echo "Getting environment variables:\n"
   export $(cat .env | xargs)
   echo "DONE\n"
-  echo "Setting up Postgres:\n"
-  start-juno-pg
   echo "Getting deps:\n"
   mix deps.get
+  echo "Setting up Postgres:\n"
+  start-juno-pg
 }
 
 function uwup-nokafka {
@@ -152,7 +152,12 @@ alias zshrc="v ~/.dotfiles/.zshrc"
 # alias rsp2="bundle exec rails s -p 3002"
 
 ### Elixir #####################################################################
+# For the shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
+# For compiling erlang
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew --prefix openssl)"
+# Enable erlang docs for IEx help function
+export KERL_BUILD_DOCS="yes"
 
 ### Functions ##################################################################
 function credo {
