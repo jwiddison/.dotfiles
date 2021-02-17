@@ -62,18 +62,17 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'itchyny/lightline.vim'
 
 " JavaScript
-Plugin 'elzr/vim-json'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/yajs.vim'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'elzr/vim-json'
+" Plugin 'maxmellon/vim-jsx-pretty'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'othree/yajs.vim'
+" Plugin 'pangloss/vim-javascript'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
 
 " Testing
 Plugin 'janko/vim-test'
