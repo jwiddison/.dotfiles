@@ -7,7 +7,6 @@
 ################################################################################
 
 ### Work #######################################################################
-alias cash="dev && cd cash-accounts/ && source .env"
 alias config="cd ~/.config/"
 alias community="dev && cd community-project/"
 alias community-admin="dev && cd community-project/community-admin/"
@@ -17,13 +16,10 @@ alias dev="cd ~/Dev/"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
 alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
-alias go="start-underwriting-session"
 alias juno="dev && cd juno/"
 alias onboarding="dev && cd onboarding/ && source .env"
 alias pii="dev && cd pii/"
 alias rfc="dev && cd eng-request-for-change/"
-alias rg="~/.dotfiles/tmux/home-dev-startup.sh"
-alias ride-guides="dev && cd ride_guides_api/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
 alias start-juno-pg="./.pkg/dev/start-database.sh"
@@ -32,10 +28,8 @@ alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-uw="start-underwriting-session"
 alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias tmp="dev && cd tmp/"
-alias u="underwriting"
 alias underwriting="dev && cd underwriting/ && source .env"
 alias uw="underwriting"
-alias vela="dev && cd vela/"
 
 function junoup {
   echo "Setting Up Juno:\n"
@@ -184,6 +178,9 @@ function ci {
   mix credo -C tests --strict
   echo -e "\n${BLUE}${SEPARATOR}TESTING\n${SEPARATOR}${NC}"
   mix test
+  # Someday
+  # echo -e "\n${BLUE}${SEPARATOR}DIALYZER\n${SEPARATOR}${NC}"
+  # mix dialyzer
   echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
 }
 
