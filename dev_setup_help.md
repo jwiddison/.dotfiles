@@ -1,4 +1,6 @@
-# Setup
+# Dev Setup Help
+
+Just some notes about all the steps to set up my dev environment
 
 ## Homebrew
 ```sh
@@ -25,6 +27,24 @@ This will make you install the xcode developer tools. That's good.
 
 Copy the example config files for kitty, zsh, vim, and tmux out of the
 dotfiles repo and into your system config files.
+
+## Ranger
+
+We already brew-installed `highlight` which we need for highlighed previews
+
+Generate the config file:
+
+```sh
+ranger --copy-config=scope
+```
+
+Change the line with `HIGHLIGHT_STYLE` to
+
+```sh
+HIGHLIGHT_STYLE=base16/material
+```
+
+Or whatever theme you want for the previews
 
 ## Install Kitty Terminal
 
@@ -72,7 +92,11 @@ Can also add `autosuggestions` to the list at the top.
 
 # TODO
 
+[Nerd Font Icons](https://www.nerdfonts.com/cheat-sheet)
+
 ## TMUX
+
+[Make Italics / Colors Work With TMUX](https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be)
 
 To fix the colors/fonts/italics in TMUX:
 
