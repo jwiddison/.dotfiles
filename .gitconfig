@@ -1,0 +1,18 @@
+[user]
+	email = jordan.widdison@gmail.com
+	name = Jordan Widdison
+
+[core]
+	editor = nvim
+	excludesfile = /Users/jordan/.gitignore
+
+[pull]
+	rebase = true
+	autostash = true
+
+[rebase]
+	autostash = true
+
+[rerere]
+	enabled = true
+	autoupdate = true
