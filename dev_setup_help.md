@@ -27,6 +27,16 @@ This will make you install the xcode developer tools. That's good.
 
 Copy the example config files for kitty, zsh, vim, and tmux out of the
 dotfiles repo and into your system config files.
+Also copy over the .gitignore and .gitconfig.
+
+```sh
+cp ~/.dotfiles/.vimrc ~/.vimrc
+cp ~/.dotfiles/.zshrc ~/.zshrc
+cp ~/.dotfiles/.tmux.conf ~/.tmux.conf
+cp ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp ~/.dotfiles/.gitignore ~/.gitignore
+cp ~/.dotfiles/.gitconfig ~/.gitconfig
+```
 
 ## Ranger
 
@@ -52,9 +62,9 @@ Or whatever theme you want for the previews
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
 
-Or you can get a DMG from their github releases if on an Apple silicon macs
+Or you can get a DMG from their [github releases](https://github.com/kovidgoyal/kitty/releases) if on an Apple silicon macs
 
-## Update Kitty Icon to use new icon from dotfiles repo (optional)
+You can also update kitty to use the icon included in the dotfiles repo if you want.
 
 ## Brew Install
 
@@ -86,7 +96,8 @@ zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 It should pull the config from dotfiles automagically.
 
-Can also add `autosuggestions` to the list at the top.
+Can also add `'autosuggestions'` to the list at the top
+and remove `'history-substring-search' \`
 
 ## Fonts
 
@@ -134,6 +145,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 ```
 
 The necessary zsh config should already be in the .zshrc
+(Note the difference depending on whether or not you're on a 0.8 version or higher)
 You might need to change how it does the completions stuff.
 [This Article](https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories) is helpful if there are issues
 
@@ -143,6 +155,8 @@ You might need to change how it does the completions stuff.
 brew install autoconf wxmac
 asdf plugin-add erlang
 ```
+
+Might be worth looking into the new-ish thing to pull pre-built binaries
 
 ### Elixir
 
