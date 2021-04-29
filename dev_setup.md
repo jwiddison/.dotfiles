@@ -39,7 +39,7 @@ Or you can get a DMG from their github releases if on an Apple silicon macs
 ## Brew Install
 
 ```sh
-brew install neovim tmux ranger the_silver_searcher
+brew install neovim tmux ranger the_silver_searcher highlight
 ```
 
 ## Vundle
@@ -70,12 +70,37 @@ Can also add `autosuggestions` to the list at the top.
 
 ## Fonts
 
-Get Fira Code from https://github.com/tonsky/FiraCode/tree/master/distr/ttf
+# TODO
+
+## TMUX
+
+To fix the colors/fonts/italics in TMUX:
+
+Create xterm-256color-italic.terminfo:
+
+```
+xterm-256color-italic|xterm with 256 colors and italic,
+  sitm=\E[3m, ritm=\E[23m,
+  use=xterm-256color,
+```
+
+And tmux-256color.terminfo:
+
+```
+tmux-256color|tmux with 256 colors,
+  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@,
+  khome=\E[1~, kend=\E[4~,
+  use=xterm-256color, use=screen-256color,
+```
+
+Then to install them, run:
 
 ```sh
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+tic -x xterm-256color-italic.terminfo
+tic -x tmux-256color.terminfo
 ```
+
+After running that you can safely delete these files
 
 ## ASDF
 
@@ -92,16 +117,29 @@ You might need to change how it does the completions stuff.
 
 ```sh
 brew install autoconf wxmac
-asdf plugin add erlang
-asdf list-all erlang (to find version)
-asdf install erlang XX.XX.XX
+asdf plugin-add erlang
 ```
 
 ### Elixir
 
 ```sh
 brew install unzip
-asdf plugin add elixir
-asdf list-all elixir
-asdf install elixir XX.XX.XX
+asdf plugin-add elixir
+```
+
+### Node
+
+```sh
+brew install gpg gawk
+asdf plugin-add nodejs
+```
+
+## Elixir-LS
+
+```sh
+git clone https://github.com/elixir-lsp/elixir-ls
+cd elixir-ls
+mix deps.get
+mix compile
+mix elixir_ls.release -o rel
 ```

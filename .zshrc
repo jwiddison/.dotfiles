@@ -193,10 +193,18 @@ export EDITOR="/usr/local/bin/nvim"
 export VISUAL="$EDITOR"
 
 # ASDF
+
+# For 0.7.X:
+# autoload -Uz compinit
+# compinit
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
+
+# For 0.8.X:
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
