@@ -2,20 +2,22 @@
 
 Just some notes about all the steps to set up my dev environment
 
-## Homebrew
+## Install Homebrew
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ## Git
 
-Generate new SSH key, and add to github
+Generate new SSH key, and add to github/gitlab
 
 ```sh
 sh-keygen -t ed25519 -C jordan.widdison@gmail.com
+cat ~/.ssh/{{filename}}.pub
 ```
 
-## Clone dotfiles repo
+## Clone Dotfiles Repo
 
 ```sh
 git clone git@github.com:jwiddison/.dotfiles.git
@@ -23,7 +25,7 @@ git clone git@github.com:jwiddison/.dotfiles.git
 
 This will make you install the xcode developer tools. That's good.
 
-## System Config files
+## System Config Files
 
 Copy the example config files for kitty, zsh, vim, and tmux out of the
 dotfiles repo and into your system config files.
@@ -42,7 +44,7 @@ cp ~/.dotfiles/.gitconfig ~/.gitconfig
 
 We already brew-installed `highlight` which we need for highlighed previews
 
-Generate the config file:
+Generate ranger's config file:
 
 ```sh
 ranger --copy-config=scope
