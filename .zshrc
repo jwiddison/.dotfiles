@@ -95,6 +95,21 @@ function uwup {
   echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
 }
 
+# function start-docker-app {
+#   BLUE='\033[0;34m'
+#   GREEN='\033[0;32m'
+#   NC='\033[0m'
+#   SEPARATOR='--------------------------------------------\n'
+#   echo -e "\n${GREEN}${SEPARATOR}STARTING DOCKER APP\n${SEPARATOR}${BLUE}"
+#   # open -gj -a ~/../../Applications/Docker.app --hide
+#   for X in 1 2 3 4 5 6 7 8 9 10 11 12
+#   do
+#     echo -ne "."
+#     sleep 0.5
+#   done
+#   echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
+# }
+
 ### System #####################################################################
 alias a="tmux a"
 alias brewtree="brew deps --tree --installed"
