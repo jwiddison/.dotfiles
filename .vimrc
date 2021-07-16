@@ -30,15 +30,15 @@ let test#strategy = "neomake"
 " ====  User Settings  ====
 " =========================
 
-let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_background = 'medium' " Background contrast. soft, medium, or hard
 let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_diagnostic_line_highlight = 0
-let g:gruvbox_material_disable_italic_comment = 1
+let g:gruvbox_material_disable_italic_comment = 0
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_menu_selection_background = 'blue' " all primary colors. Defaults to grey
-let g:gruvbox_material_palette = 'mix' " original, mix, or material
-let g:gruvbox_material_sign_column_background = 'default' " default or none. Doesn't matter if background is transparent
-let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_palette = 'original' " original, mix, or material
+let g:gruvbox_material_sign_column_background = 'none' " default or none. Doesn't matter if background is transparent
+let g:gruvbox_material_transparent_background = 0
 colorscheme gruvbox-material
 
 set autoread                             " Read file from disk when vim gains focus
