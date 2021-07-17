@@ -28,9 +28,11 @@ alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-uw="start-underwriting-session"
 alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
+alias start-workflo="~/.dotfiles/tmux/workflo-startup.sh"
 alias tmp="dev && cd tmp/"
 alias underwriting="dev && cd underwriting/ && source .env"
 alias uw="underwriting"
+alias workflo="dev && cd workflo/"
 
 function junoup {
   echo "Setting Up Juno:\n"
