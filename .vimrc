@@ -2,6 +2,8 @@
 " ==== .vimrc - Jordan Widdison ====
 " ==================================
 
+" use `mV` to set a global mark in this file if you want
+
 " Plugins
 source ~/.dotfiles/vim/plugins.vim
  
