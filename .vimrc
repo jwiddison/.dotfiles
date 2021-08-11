@@ -39,13 +39,14 @@ let g:gruvbox_material_disable_italic_comment = 0
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_menu_selection_background = 'blue' " all primary colors. Defaults to grey
 let g:gruvbox_material_palette = 'original' " original, mix, or material
-let g:gruvbox_material_sign_column_background = 'none' " default or none. Doesn't matter if background is transparent
+let g:gruvbox_material_sign_column_background = 'none' " default or none. Does nothing if background is transparent
 let g:gruvbox_material_transparent_background = 0
 colorscheme gruvbox-material
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
 set backspace=indent,eol,start           " Let's backspace behave how you'd expect
+set background=dark                      " Dark themes by default
 set colorcolumn=120                      " Sets the line length indicator at column 120
 set directory=~/.vim/backups             " Tell VIM where to put swp files
 set expandtab                            " Insert 2 space chars when pressing tab
@@ -166,6 +167,16 @@ map <leader>n :Ranger<CR>
 " NERDTree
 map <leader>- :NERDTreeFind<CR>
 nnoremap <silent>- :NERDTreeToggle<CR>
+
+" Toggles light and dark background on and off
+function ToggleBg()
+  if(&background == 'dark')
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
+map <Leader>o :call ToggleBg()<CR>
 
 " Toggles relativenumber on and off.
 function! RelativeNumberToggle()

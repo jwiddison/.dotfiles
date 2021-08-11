@@ -19,7 +19,6 @@ alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
 alias iex-runner="dev && cd iex-runner/"
 alias juno="dev && cd juno/"
 alias onboarding="dev && cd onboarding/ && source .env"
-alias pii="dev && cd pii/"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
@@ -27,8 +26,8 @@ alias start-juno-pg="./.pkg/dev/start-database.sh"
 alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
 alias start-uw="start-underwriting-session"
-alias start-vault="cd ~/Dev/pii/ && ./bin/dev up -d && cd -"
 alias start-workflo="~/.dotfiles/tmux/workflo-startup.sh"
+alias test="mix test"
 alias tmp="dev && cd tmp/"
 alias underwriting="dev && cd underwriting/ && source .env"
 alias uw="underwriting"
@@ -59,10 +58,6 @@ function uwup-nokafka {
   docker-compose -f .pkg/dev/docker-compose.yml up -d postgres
   echo -e "\n${BLUE}${SEPARATOR}STARTING REDIS\n${SEPARATOR}${NC}"
   docker-compose -f .pkg/dev/docker-compose.yml up -d redis
-  echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
-  cd ~/Dev/pii
-  ./bin/dev up -d
-  cd -
   echo -e "\n${BLUE}${SEPARATOR}GETTING DEPS\n${SEPARATOR}${NC}"
   mix deps.get
   echo -e "\n${BLUE}${SEPARATOR}SETTING UP DATABASE\n${SEPARATOR}${NC}"
@@ -86,10 +81,6 @@ function uwup {
   echo -e "\n${BLUE}${SEPARATOR}STARTING KAFKA\n${SEPARATOR}${NC}"
   docker-compose -f .pkg/dev/docker-compose.yml up -d kafka
   docker-compose -f .pkg/dev/docker-compose.yml up -d kafka-cannonball kafka-connect-ui kafka-ui
-  echo -e "\n${BLUE}${SEPARATOR}STARTING VAULT & CONSUL\n${SEPARATOR}${NC}"
-  cd ~/Dev/pii
-  ./bin/dev up -d
-  cd -
   echo -e "\n${BLUE}${SEPARATOR}GETTING DEPS\n${SEPARATOR}${NC}"
   mix deps.get
   echo -e "\n${BLUE}${SEPARATOR}SETTING UP DATABASE\n${SEPARATOR}${NC}"
@@ -118,6 +109,7 @@ alias brewtree="brew deps --tree --installed"
 alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
+alias current-branch="git rev-parse --abbrev-ref HEAD | pbcopy && pbpaste"
 alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
 alias dc="docker-compose"
 alias desktop="cd ~/Desktop/"
