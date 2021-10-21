@@ -61,6 +61,9 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
+" Goyo for focus
+Plugin 'junegunn/goyo.vim'
+
 " JavaScript
 " Plugin 'elzr/vim-json'
 " Plugin 'maxmellon/vim-jsx-pretty'

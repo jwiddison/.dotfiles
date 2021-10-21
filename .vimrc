@@ -19,6 +19,8 @@ let g:ctrlp_custom_ignore = '\v\.(svg|jpeg|jpg|JPG|png|git|hg|svn|\.yardoc\|publ
 let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 let g:ctrlp_working_path_mode = 'ra'
+let g:goyo_height = '90%'
+let g:goyo_width = '90%'
 let g:indentLine_char = '│'
 let g:neomake_open_list = 1
 let g:rainbow_active = 1
@@ -160,6 +162,9 @@ nnoremap <leader>;o :CocList outline<CR>
 nmap <leader>;d <Plug>(coc-definition)
 nnoremap <leader>;h :call CocAction('doHover')<CR>
 nnoremap <leader>;f :call CocAction('format')<CR>
+
+" Goyo for focus
+map <leader>g :Goyo<CR>
 
 " Ranger
 map <leader>n :Ranger<CR>
