@@ -102,6 +102,9 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:rainbow_conf = {'separately': {'nerdtree': 0}}
 
+" Vim-Rust
+let g:rustfmt_autosave = 1
+
 " =========================
 " ==== Custom Bindings ====
 " =========================

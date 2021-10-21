@@ -77,6 +77,9 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 
+" Rust
+Plugin 'rust-lang/rust.vim'
+
 " Testing
 Plugin 'janko/vim-test'
 Plugin 'neomake/neomake'

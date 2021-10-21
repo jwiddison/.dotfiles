@@ -163,6 +163,11 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew
 # Enable erlang docs for IEx help function
 export KERL_BUILD_DOCS="yes"
 
+### Rust #######################################################################
+alias cb="cargo build"
+alias cr="cargo run"
+alias ct="cargo test"
+
 ### Functions ##################################################################
 function credo {
   echo "Linting:\n"
