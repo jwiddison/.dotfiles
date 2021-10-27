@@ -88,6 +88,10 @@ function uwup {
   echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
 }
 
+function squash-branch-changes {
+  git reset $(git merge-base master $(current-branch))
+}
+
 # function start-docker-app {
 #   BLUE='\033[0;34m'
 #   GREEN='\033[0;32m'
@@ -170,9 +174,13 @@ alias ct="cargo test"
 
 ### Functions ##################################################################
 function credo {
-  echo "Linting:\n"
+  BLUE='\033[0;34m'
+  NC='\033[0m'
+  SEPARATOR='--------------------------------------------\n'
+
+  echo -e "\n${BLUE}${SEPARATOR}LINTING\n${SEPARATOR}${NC}"
   mix credo --strict
-  echo "Linting Test Files:\n"
+  echo -e "\n${BLUE}${SEPARATOR}LINTING TEST FILES\n${SEPARATOR}${NC}"
   mix credo -C tests --strict
 }
 
