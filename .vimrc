@@ -126,7 +126,7 @@ map <Leader>t <C-p>
 map <Leader>a :source ~/.vimrc<CR>
 
 " Git
-map <Leader>b :Gblame<CR>
+map <Leader>b :Git blame<CR>
 map <Leader>c :GitGutterNextHunk<CR>
 
 " Override default gitgutter mappings that collide
