@@ -18,6 +18,7 @@ alias divvy-protos="dev && cd divvy-protobuf/"
 alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
 alias iex-runner="dev && cd iex-runner/"
 alias juno="dev && cd juno/"
+alias money-mover="dev && cd money-mover/"
 alias onboarding="dev && cd onboarding/ && source .env"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
@@ -92,20 +93,27 @@ function squash-branch-changes {
   git reset $(git merge-base master $(current-branch))
 }
 
-# function start-docker-app {
-#   BLUE='\033[0;34m'
-#   GREEN='\033[0;32m'
-#   NC='\033[0m'
-#   SEPARATOR='--------------------------------------------\n'
-#   echo -e "\n${GREEN}${SEPARATOR}STARTING DOCKER APP\n${SEPARATOR}${BLUE}"
-#   # open -gj -a ~/../../Applications/Docker.app --hide
-#   for X in 1 2 3 4 5 6 7 8 9 10 11 12
-#   do
-#     echo -ne "."
-#     sleep 0.5
-#   done
-#   echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
-# }
+function start-docker-app {
+  if (! docker version > /dev/null 2>&1 ); then
+    BLUE='\033[0;34m'
+    GREEN='\033[0;32m'
+    NC='\033[0m'
+    SEPARATOR='--------------------------------------------\n'
+    echo -e "\n${GREEN}${SEPARATOR}STARTING DOCKER APP\n${SEPARATOR}${BLUE}"
+    open /Applications/Docker.app
+    echo -n "Waiting for Docker to launch."
+    while (! docker version > /dev/null 2>&1 ); do
+      echo -n "."
+      sleep 1
+    done
+    echo -e "\n\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
+  fi
+}
+
+function db {
+  start-docker-app
+  docker-compose up -d postgres
+}
 
 ### System #####################################################################
 alias a="tmux a"
