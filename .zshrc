@@ -110,11 +110,6 @@ function start-docker-app {
   fi
 }
 
-function db {
-  start-docker-app
-  docker-compose up -d postgres
-}
-
 ### System #####################################################################
 alias a="tmux a"
 alias brewtree="brew deps --tree --installed"
@@ -122,6 +117,7 @@ alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
 alias cleanup-docker="docker system prune --all --force"
 alias current-branch="git rev-parse --abbrev-ref HEAD | pbcopy && pbpaste"
+alias db="start-docker-app && dc up -d postgres"
 alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
 alias dc="docker-compose"
 alias desktop="cd ~/Desktop/"
