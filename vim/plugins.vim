@@ -90,6 +90,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 Plugin 'sainnhe/gruvbox-material'
+Plugin 'sainnhe/everforest'
 
 " File Icons
 " NOTE: Needs to go last
