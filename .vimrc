@@ -45,7 +45,7 @@ let g:gruvbox_material_sign_column_background = 'none' " default or none. Does n
 let g:gruvbox_material_transparent_background = 0
 colorscheme gruvbox-material
 
-colorscheme embark
+" colorscheme embark
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
