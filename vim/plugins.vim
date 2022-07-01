@@ -90,7 +90,6 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 Plugin 'sainnhe/gruvbox-material'
-Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 
 " File Icons
 " NOTE: Needs to go last
