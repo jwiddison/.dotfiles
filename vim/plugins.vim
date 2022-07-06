@@ -65,11 +65,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/goyo.vim'
 
 " JavaScript
-" Plugin 'elzr/vim-json'
-" Plugin 'maxmellon/vim-jsx-pretty'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'othree/yajs.vim'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -98,5 +95,3 @@ Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on
-
-
