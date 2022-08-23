@@ -68,6 +68,9 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 
+" Scala
+Plugin 'derekwyatt/vim-scala'
+
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 

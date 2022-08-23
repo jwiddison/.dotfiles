@@ -16,13 +16,17 @@ alias dev="cd ~/Dev/"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
 alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
+alias flink="dev && cd divvy-flink/"
+alias homework="dev && cd homework/"
 alias iex-runner="dev && cd iex-runner/"
 alias juno="dev && cd juno/"
+alias kafka-cannonball="dev && cd kafka-cannonball/"
 alias money-mover="dev && cd money-mover/"
 alias onboarding="dev && cd onboarding/ && source .env"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
+alias start-flink="~/.dotfiles/tmux/flink-startup.sh"
 alias start-juno-pg="./.pkg/dev/start-database.sh"
 alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
@@ -168,8 +172,10 @@ alias zshrc="v ~/.dotfiles/.zshrc"
 ### Elixir #####################################################################
 # For the shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
+# Make OpenSSL happy for Erlang
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # For compiling erlang
-export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew --prefix openssl)"
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew --prefix openssl@1.1)"
 # Enable erlang docs for IEx help function
 export KERL_BUILD_DOCS="yes"
 
@@ -177,6 +183,17 @@ export KERL_BUILD_DOCS="yes"
 alias cb="cargo build"
 alias cr="cargo run"
 alias ct="cargo test"
+
+### Scala ######################################################################
+
+# >>> JVM installed by coursier >>>
+export JAVA_HOME="/Users/jordanwiddison/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
+# <<< JVM installed by coursier <<<
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/jordanwiddison/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
+
 
 ### Functions ##################################################################
 function credo {

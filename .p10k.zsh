@@ -583,6 +583,7 @@
   typeset -g POWERLEVEL9K_ASDF_SHOW_ON_UPGLOB=
   typeset -g POWERLEVEL9K_ASDF_ELIXIR_SHOW_ON_UPGLOB='*.ex|mix.exs'
   typeset -g POWERLEVEL9K_ASDF_ERLANG_SHOW_ON_UPGLOB='*.ex|mix.exs'
+  typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.go'
   typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.js|package.json'
   typeset -g POWERLEVEL9K_ASDF_RUBY_SHOW_ON_UPGLOB='*.rb|Gemfile'
   typeset -g POWERLEVEL9K_ASDF_RUST_SHOW_ON_UPGLOB='*.rs|Cargo.toml'
