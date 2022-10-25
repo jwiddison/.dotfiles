@@ -4,7 +4,6 @@
 let g:lightline = {}
 
 " Colorscheme
-" let g:lightline.colorscheme = 'gruvbox_material'
 let g:lightline.colorscheme = 'everforest'
 
 nnoremap <silent> <UP> :cope<CR>
@@ -88,17 +87,10 @@ let g:lightline.active = {
       \ 'right': [['lineinfo'], ['testing_status', 'status_diagnostic']]
       \ }
 
-" Works with Kitty
 let g:lightline.separator = { 'left': " ", 'right': " " }
 let g:lightline.subseparator = { 'left': '\\', 'right': '\\' }
 let g:lightline.tabline_separator = { 'left': " ", 'right': "" }
 let g:lightline.tabline_subseparator = { 'left': "/", 'right': "/" }
-
-" Works with iTerm
-" let g:lightline.separator = { 'left': "", 'right': "" }
-" let g:lightline.subseparator = { 'left': '', 'right': '' }
-" let g:lightline.tabline_separator = { 'left': "", 'right': "" }
-" let g:lightline.tabline_subseparator = { 'left': "", 'right': "" }
 
 let g:lightline.tabline = {
             \ 'left': [['vim_logo'], ['tabs']],

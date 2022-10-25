@@ -7,6 +7,7 @@
 ################################################################################
 
 ### Work #######################################################################
+alias cannonball="kafka-cannonball"
 alias config="cd ~/.config/"
 alias community="dev && cd community-project/"
 alias community-admin="dev && cd community-project/community-admin/"
@@ -16,7 +17,7 @@ alias dev="cd ~/Dev/"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
 alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
-alias flink="dev && cd divvy-flink/"
+alias divvy-flink="dev && cd divvy-flink/"
 alias homework="dev && cd homework/"
 alias iex-runner="dev && cd iex-runner/"
 alias juno="dev && cd juno/"
@@ -26,7 +27,7 @@ alias onboarding="dev && cd onboarding/ && source .env"
 alias rfc="dev && cd eng-request-for-change/"
 alias stardust="dev && cd stardust/"
 alias start-community="~/.dotfiles/tmux/home-dev-startup.sh"
-alias start-flink="~/.dotfiles/tmux/flink-startup.sh"
+alias start-dev="~/.dotfiles/tmux/dev-startup.sh"
 alias start-juno-pg="./.pkg/dev/start-database.sh"
 alias start-juno-session="~/.dotfiles/tmux/juno-startup.sh"
 alias start-underwriting-session="~/.dotfiles/tmux/underwriting-startup.sh"
@@ -185,15 +186,13 @@ alias cr="cargo run"
 alias ct="cargo test"
 
 ### Scala ######################################################################
-
-# >>> JVM installed by coursier >>>
+# JVM installed by coursier
 export JAVA_HOME="/Users/jordanwiddison/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
-# <<< JVM installed by coursier <<<
-
-# >>> coursier install directory >>>
+# coursier install directory
 export PATH="$PATH:/Users/jordanwiddison/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<
 
+### Python #####################################################################
+export PATH="/usr/local/opt/python@3.10/libexec/bin:$PATH"
 
 ### Functions ##################################################################
 function credo {

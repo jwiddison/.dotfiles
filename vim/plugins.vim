@@ -16,8 +16,8 @@ Plugin 'ervandew/supertab'
 " Multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
-" Add indentation guidelines
-Plugin 'Yggdroot/indentLine'
+" " Add indentation guidelines
+Plugin 'thaerkh/vim-indentguides'
 
 " Smooth scrolling
 Plugin 'yuttie/comfortable-motion.vim'
@@ -61,9 +61,6 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
-" Goyo for focus
-Plugin 'junegunn/goyo.vim'
-
 " JavaScript
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
@@ -77,9 +74,6 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 
-" Rust
-Plugin 'rust-lang/rust.vim'
-
 " Testing
 Plugin 'janko/vim-test'
 Plugin 'neomake/neomake'
@@ -89,7 +83,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'sainnhe/gruvbox-material'
 Plugin 'sainnhe/everforest'
 
 " File Icons

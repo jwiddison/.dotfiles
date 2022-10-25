@@ -19,9 +19,8 @@ let g:ctrlp_custom_ignore = '\v\.(svg|jpeg|jpg|JPG|png|git|hg|svn|\.yardoc\|publ
 let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 let g:ctrlp_working_path_mode = 'ra'
-let g:goyo_height = '90%'
-let g:goyo_width = '90%'
-let g:indentLine_char = '│'
+let g:indentguides_spacechar = '│'
+let g:indentguides_tabchar = '┆'
 let g:neomake_open_list = 1
 let g:rainbow_active = 1
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
@@ -33,17 +32,6 @@ let test#strategy = "neomake"
 " =========================
 " ====  User Settings  ====
 " =========================
-
-let g:gruvbox_material_background = 'medium' " Background contrast. soft, medium, or hard
-let g:gruvbox_material_better_performance = 1
-let g:gruvbox_material_diagnostic_line_highlight = 0
-let g:gruvbox_material_disable_italic_comment = 0
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_menu_selection_background = 'blue' " all primary colors. Defaults to grey
-let g:gruvbox_material_palette = 'original' " original, mix, or material
-let g:gruvbox_material_sign_column_background = 'none' " default or none. Does nothing if background is transparent
-let g:gruvbox_material_transparent_background = 0
-colorscheme gruvbox-material
 
 let g:everforest_background = 'hard' " hard, medium, soft
 let g:everforest_better_performance = 1
@@ -72,6 +60,7 @@ set showmatch                            " When you insert a bracket, breifly ju
 set showtabline=2                        " Always show the tabline at the top of the window
 set smartcase                            " When searching in a buffer, be smart about the case of the search term
 set softtabstop=2                        " Make tabs two spaces
+set spelllang=en_us                      " Sets the language for spellcheck
 set splitbelow                           " Horizontal splits open below
 set splitright                           " Vertical splits open to right
 set tabstop=2                            " Make tabs two spaces
@@ -110,9 +99,6 @@ if exists('g:loaded_webdevicons')
 endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:rainbow_conf = {'separately': {'nerdtree': 0}}
-
-" Vim-Rust
-let g:rustfmt_autosave = 1
 
 " =========================
 " ==== Custom Bindings ====
@@ -166,17 +152,11 @@ nmap <leader>/ :TestLast<CR>
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 
-" Duplicate a line down
-nnoremap <A-Down> :t.<CR>
-
 " Coc - language server stuff
 nnoremap <leader>;o :CocList outline<CR>
 nmap <leader>;d <Plug>(coc-definition)
 nnoremap <leader>;h :call CocAction('doHover')<CR>
 nnoremap <leader>;f :call CocAction('format')<CR>
-
-" Goyo for focus
-map <leader>g :Goyo<CR>
 
 " Ranger
 map <leader>n :Ranger<CR>
@@ -195,26 +175,11 @@ function ToggleBg()
 endfunction
 map <Leader>o :call ToggleBg()<CR>
 
-" Toggles relativenumber on and off.
-function! RelativeNumberToggle()
-  if(&relativenumber == 1)
-    set number
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunction
-map <Leader>r :call RelativeNumberToggle()<CR>
+" Spellcheck
+map <Leader>s :setlocal spell!<cr>
 
-" Toggles line numbers on and off.
-function! NumberToggle()
-  if(&number == 1)
-    set nonumber
-  else
-    set number
-  endif
-endfunction
-map <Leader>R :call NumberToggle()<CR>
+" Toggles relativenumber on and off.
+map <Leader>r :set relativenumber!<CR>
 
 " Split panes
 map <Leader>vs :vs<CR>
