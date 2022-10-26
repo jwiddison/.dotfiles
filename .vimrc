@@ -33,14 +33,17 @@ let test#strategy = "neomake"
 " ====  User Settings  ====
 " =========================
 
-let g:everforest_background = 'hard' " hard, medium, soft
-let g:everforest_better_performance = 1
-let g:everforest_enable_italic = 1
-let g:everforest_transparent_background = 0
-let g:everforest_sign_column_background = 'none'
-let g:everforest_spell_foreground = 'colored'
-let g:everforest_ui_contrast = 'low'
-colorscheme everforest
+" let g:everforest_background = 'hard' " hard, medium, soft
+" let g:everforest_better_performance = 1
+" let g:everforest_enable_italic = 1
+" let g:everforest_transparent_background = 0
+" let g:everforest_sign_column_background = 'none'
+" let g:everforest_spell_foreground = 'colored'
+" let g:everforest_ui_contrast = 'low'
+" colorscheme everforest
+
+let g:embark_terminal_italics = 1
+colorscheme embark
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
