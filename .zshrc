@@ -119,6 +119,7 @@ function start-docker-app {
 
 ### System #####################################################################
 alias a="tmux a"
+alias branch="current-branch"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
 alias check-the-weather="curl https://wttr.in/slc"
