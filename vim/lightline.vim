@@ -62,8 +62,8 @@ function! FileNameWithParent(f) abort
 endfunction
 
 function! Git_branch() abort
-  if fugitive#head() !=# ''
-    return  " " . fugitive#head() 
+  if FugitiveHead() !=# ''
+    return  " " . FugitiveHead()
   else
     return "\uf468"
   endif
