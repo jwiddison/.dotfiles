@@ -130,12 +130,21 @@ function start-docker-app {
   fi
 }
 
+function watchpods() {
+  while true; do
+    OUTPUT=$(kubectl get pods)
+    clear
+    echo -n "${OUTPUT}"
+    sleep ${1:-5}
+  done
+}
+
 ################################################################################
 # Other
 ################################################################################
 
 # Always use nvim
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 export VISUAL="$EDITOR"
 
 # ASDF
