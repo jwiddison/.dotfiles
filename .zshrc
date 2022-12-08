@@ -29,6 +29,7 @@ alias uw="underwriting"
 
 # General
 alias a="tmux a"
+alias advent-of-code="dev && cd tmp/advent_of_code/"
 alias branch="current-branch"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
@@ -75,6 +76,24 @@ alias zshrc="v ~/.dotfiles/.zshrc"
 # Functions
 ################################################################################
 
+function advent-ci {
+  BLUE='\033[0;34m'
+  GREEN='\033[0;32m'
+  NC='\033[0m'
+  SEPARATOR='--------------------------------------------\n'
+
+  echo -e "\n${GREEN}${SEPARATOR}RUNNING LOCAL CI\n${SEPARATOR}${NC}"
+  echo -e "\n${BLUE}${SEPARATOR}FORMATTING\n${SEPARATOR}${NC}"
+  mix format
+  echo -e "\n${BLUE}${SEPARATOR}LINTING\n${SEPARATOR}${NC}"
+  mix credo --strict
+  echo -e "\n${BLUE}${SEPARATOR}TESTING\n${SEPARATOR}${NC}"
+  mix test
+  echo -e "\n${BLUE}${SEPARATOR}DIALYZER\n${SEPARATOR}${NC}"
+  mix dialyzer
+  echo -e "\n${GREEN}${SEPARATOR}DONE\n${SEPARATOR}${NC}"
+}
+
 function ci {
   BLUE='\033[0;34m'
   GREEN='\033[0;32m'
@@ -111,6 +130,9 @@ function credo {
 
 function squash-branch-changes {
   git reset $(git merge-base master $(current-branch))
+}
+function squash-branch-changes-main {
+  git reset $(git merge-base main $(current-branch))
 }
 
 function start-docker-app {
