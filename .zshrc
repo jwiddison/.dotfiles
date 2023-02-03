@@ -198,7 +198,12 @@ export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew
 export KERL_BUILD_DOCS="yes"
 
 # Scala Stuff
-# JVM installed by coursier
-export JAVA_HOME="/Users/jordanwiddison/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
+# # JVM installed by coursier
+export JAVA_HOME="/Users/jordanwiddison/Library/Java/JavaVirtualMachines/corretto-1.8.0_362/Contents/Home"
+# export JAVA_HOME="/Users/jordanwiddison/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
 # coursier install directory
 export PATH="$PATH:/Users/jordanwiddison/Library/Application Support/Coursier/bin"
+
+# Brew happy with BCLI
+export LIBRARY_PATH="$(brew --prefix)/lib"
+export CPATH="$(brew --prefix)/include"
