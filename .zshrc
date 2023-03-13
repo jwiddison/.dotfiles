@@ -2,42 +2,13 @@
 # Aliases 
 ################################################################################
 
-# Divvy
-alias cannonball="kafka-cannonball"
-alias community="dev && cd community-project/"
-alias community-admin="dev && cd community-project/community-admin/"
-alias community-api="dev && cd community-project/community/ && source .env"
-alias community-mobile="dev && cd community-project/community-mobile/"
-alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
-alias divvy-protos="dev && cd divvy-protobuf/"
-alias ecr-login="dev && ./ecr-login --registry-id 544781154255 && cd -"
-alias divvy-flink="dev && cd divvy-flink/"
-alias homework="dev && cd homework/"
-alias iex-runner="dev && cd iex-runner/"
-alias juno="dev && cd juno/"
-alias kafka-cannonball="dev && cd kafka-cannonball/"
-alias money-mover="dev && cd money-mover/"
-alias onboarding="dev && cd onboarding/ && source .env"
-alias rfc="dev && cd eng-request-for-change/"
-alias stardust="dev && cd stardust/"
-alias start-dev="~/.dotfiles/tmux/dev-startup.sh"
-alias start-uw="~/.dotfiles/tmux/underwriting-startup.sh"
-alias test="mix test"
-alias tmp="dev && cd tmp/"
-alias underwriting="dev && cd underwriting/ && source .env"
-alias uw="underwriting"
-
 # General
 alias a="tmux a"
 alias advent-of-code="dev && cd tmp/advent_of_code/"
 alias branch="current-branch"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
-alias cb="cargo build"
-alias cleanup-docker="docker system prune --all --force"
 alias config="cd ~/.config/"
-alias cr="cargo run"
-alias ct="cargo test"
 alias current-branch="git rev-parse --abbrev-ref HEAD | pbcopy && pbpaste"
 alias db="start-docker-app && dc up -d postgres"
 alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
@@ -47,6 +18,7 @@ alias dev="cd ~/Dev/"
 alias documents="cd ~/Documents/"
 alias dotfiles="cd ~/.dotfiles/"
 alias downloads="cd ~/Downloads/"
+alias fishconf="v ~/.dotfiles/fish.conf"
 alias gap="git add -p"
 alias gb="git branch"
 alias gco="git checkout"
@@ -65,12 +37,16 @@ alias migrate="mix ecto.migrate"
 alias reload="source ~/.zshrc"
 alias reloadzsh="reload"
 alias rollback="mix ecto.rollback"
+alias test="mix test"
 alias undo-last-commit="git reset --hard HEAD~1"
 alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
 alias vimrc="v ~/.dotfiles/.vimrc"
 alias zshrc="v ~/.dotfiles/.zshrc"
+
+# Divvy / Bill
+source ~/.dotfiles/.zshrc.dv
 
 ################################################################################
 # Functions
