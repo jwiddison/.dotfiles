@@ -41,11 +41,11 @@ augroup END
 """""""""""""""""""""
 function! TestingStatus() abort
   if g:TESTING_STATUS == 'passing'
-    return "  "
+    return "  "
   elseif g:TESTING_STATUS == 'running'
     return " ﳘ "
   elseif g:TESTING_STATUS == 'failing'
-    return "  "
+    return "  "
   endif
 endfunction
 

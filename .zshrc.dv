@@ -12,3 +12,6 @@ alias start-dev="~/.dotfiles/tmux/dev-startup.sh"
 alias start-uw="~/.dotfiles/tmux/underwriting-startup.sh"
 alias tmp="dev && cd tmp/"
 alias uw="dev && cd underwriting/ && source .env"
+
+# Confluent CLI
+export PATH=$(pwd)/bin:$PATH
