@@ -32,6 +32,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
+    os_icon
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================

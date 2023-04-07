@@ -1,6 +1,7 @@
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
 alias divvy-protos="dev && cd divvy-protobuf/"
 alias divvy-flink="dev && cd divvy-flink/"
+alias edit-zscaler="sudo nvim /Applications/Zscaler/Zscaler.app/Contents/Info.plist"
 alias flink-juno="dev && cd flink-juno/ && source .env"
 alias homework="dev && cd homework/"
 alias iex-runner="dev && cd iex-runner/"

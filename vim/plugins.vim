@@ -83,8 +83,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'sainnhe/everforest'
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+Plugin 'ayu-theme/ayu-vim'
 
 " File Icons
 " NOTE: Needs to go last

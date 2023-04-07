@@ -6,7 +6,7 @@
 
 " Plugins
 source ~/.dotfiles/vim/plugins.vim
- 
+
 " Lightline Config
 source ~/.dotfiles/vim/lightline.vim
 
@@ -33,8 +33,13 @@ let test#strategy = "neomake"
 " ====  User Settings  ====
 " =========================
 
-let g:embark_terminal_italics = 1
-colorscheme embark
+" let g:embark_terminal_italics = 1
+" colorscheme embark
+
+let g:ayucolor='mirage'
+" let g:ayucolor='light'
+" let g:ayucolor='dark'
+colorscheme ayu
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
@@ -65,7 +70,7 @@ set undofile                             " Turn on saving undo history
 set undolevels=1000                      " Maximum number of changes that can be undone
 set undoreload=1000                      " Maximum number lines to save for undo on a buffer reload
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " Default set of files to ignore for CtrlP
- 
+
 " Match opening/closing parens, brackets, etc
 runtime macros/matchit.vim
 
