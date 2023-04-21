@@ -16,3 +16,7 @@ alias uw="dev && cd underwriting/ && source .env"
 
 # Confluent CLI
 export PATH=$(pwd)/bin:$PATH
+
+# Trubka
+export TRUBKA_PROTO_ROOT="~/Dev/divvy-protobuf/protobuf/"
+export TRUBKA_BROKERS="localhost:9092"

@@ -84,7 +84,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
-Plugin 'ayu-theme/ayu-vim'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 
 " File Icons
 " NOTE: Needs to go last
