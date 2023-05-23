@@ -27,6 +27,7 @@ alias gitlog="git log --oneline --graph --decorate --all"
 alias gpom="git pull origin master"
 alias gs="git status"
 alias k="kubectl"
+alias kctx="kubectx"
 alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
 alias kittyconf="v ~/.dotfiles/kitty/kitty.conf"
 alias kns="kubens"
