@@ -33,10 +33,10 @@ let test#strategy = "neomake"
 " ====  User Settings  ====
 " =========================
 
-" let g:embark_terminal_italics = 1
-" colorscheme embark
+let g:embark_terminal_italics = 1
+colorscheme embark
 
-colorscheme onehalfdark
+" colorscheme onehalfdark
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands

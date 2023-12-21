@@ -587,6 +587,7 @@
   typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.js|package.json'
   typeset -g POWERLEVEL9K_ASDF_RUBY_SHOW_ON_UPGLOB='*.rb|Gemfile'
   typeset -g POWERLEVEL9K_ASDF_RUST_SHOW_ON_UPGLOB='*.rs|Cargo.toml'
+  typeset -g POWERLEVEL9K_ASDF_KUBECTL_SHOW_ON_UPGLOB='values.yaml'
 
   # Ruby version from asdf.
   typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=0
@@ -1174,7 +1175,7 @@
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|kns|kn'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|kns|kn|k'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.

@@ -1,7 +1,10 @@
+alias bdc-flink="dev && cd bdc-flink/ && source .env"
+alias bill-flink="dev && cd bill-flink/ && source .env"
 alias divvy-elixir-protos="dev && cd elixir_divvy_protobuf/"
-alias divvy-protos="dev && cd divvy-protobuf/"
 alias divvy-flink="dev && cd divvy-flink/"
+alias divvy-protos="dev && cd divvy-protobuf/"
 alias edit-zscaler="sudo nvim /Applications/Zscaler/Zscaler.app/Contents/Info.plist"
+alias flink-deps="bcli localspace up -d pg-juno kafka kafka-connect kafka-cannonball juno"
 alias flink-juno="dev && cd flink-juno/ && source .env"
 alias homework="dev && cd homework/"
 alias iex-runner="dev && cd iex-runner/"
@@ -21,3 +24,11 @@ export PATH=$(pwd)/bin:$PATH
 # Trubka
 export TRUBKA_PROTO_ROOT="~/Dev/divvy-protobuf/protobuf/"
 export TRUBKA_BROKERS="localhost:9092"
+
+# Okta AWS CLI
+export OKTA_AWSCLI_CACHE_ACCESS_TOKEN="true"
+export OKTA_AWSCLI_FORMAT="aws-credentials"
+export OKTA_AWSCLI_OPEN_BROWSER="true"
+export OKTA_AWSCLI_WRITE_AWS_CREDENTIALS="true"
+export OKTA_OIDC_CLIENT_ID="0oatocfip1UR3Z6us1t7"
+export OKTA_ORG_DOMAIN="billcom.okta.com"
