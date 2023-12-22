@@ -36,8 +36,6 @@ let test#strategy = "neomake"
 let g:embark_terminal_italics = 1
 colorscheme embark
 
-" colorscheme onehalfdark
-
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
 set backspace=indent,eol,start           " Let's backspace behave how you'd expect
