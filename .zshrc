@@ -2,25 +2,20 @@
 # Aliases 
 ################################################################################
 
-# General
 alias a="tmux a"
-alias advent-of-code="dev && cd tmp/advent_of_code/"
-alias branch="current-branch"
+alias brew="arch -arm64 brew"
 alias brewtree="brew deps --tree --installed"
 alias c="clear"
 alias config="cd ~/.config/"
 alias current-branch="git rev-parse --abbrev-ref HEAD | pbcopy && pbpaste"
 alias db="start-docker-app && dc up -d postgres"
-alias dbfullreset="mix ecto.drop && mix ecto.create && mix ecto.migrate"
 alias dc="docker-compose"
 alias desktop="cd ~/Desktop/"
 alias dev="cd ~/Dev/"
 alias documents="cd ~/Documents/"
 alias dotfiles="cd ~/.dotfiles/"
 alias downloads="cd ~/Downloads/"
-alias fishconf="v ~/.dotfiles/fish.conf"
 alias gap="git add -p"
-alias gb="git branch"
 alias gco="git checkout"
 alias getcurrentip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias gitlog="git log --oneline --graph --decorate --all"
@@ -32,22 +27,15 @@ alias kill-git-branches='git branch | grep -v "master" | xargs git branch -D'
 alias kittyconf="v ~/.dotfiles/kitty/kitty.conf"
 alias kns="kubens"
 alias last-commit-sha="git rev-parse HEAD | tr -d '[:space:]' | pbcopy && pbpaste"
-alias lightline="v ~/.dotfiles/vim/lightline.vim"
 alias ls="ls -alFG"
-alias migrate="mix ecto.migrate"
-alias reload="source ~/.zshrc"
-alias reloadzsh="reload"
-alias rollback="mix ecto.rollback"
-alias test="mix test"
+alias reloadzsh="source ~/.zshrc"
+alias start-dev="~/.dotfiles/tmux/dev-startup.sh"
 alias undo-last-commit="git reset --hard HEAD~1"
 alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 alias v="nvim" 
 alias vimrc="v ~/.dotfiles/.vimrc"
 alias zshrc="v ~/.dotfiles/.zshrc"
-
-# Divvy / Bill
-source ~/.dotfiles/.zshrc.dv
 
 ################################################################################
 # Functions
@@ -149,8 +137,6 @@ export VISUAL="$EDITOR"
 # ASDF
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
-
-# ZSH autocomplete
 autoload -U compinit && compinit
 
 # Source Prezto.
@@ -161,26 +147,10 @@ fi
 # Configure powerlevel prompt
 source ~/.dotfiles/.p10k.zsh
 
-# Kubernetes
-export TILLER_NAMESPACE=default
-
-# Elixir Stuff
-# For the shell history
+# Elixir / Erlang Stuff
 export ERL_AFLAGS="-kernel shell_history enabled"
-# Make OpenSSL happy for Erlang
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-# For compiling erlang
-export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac --with-ssl=$(brew --prefix openssl@1.1)"
-# Enable erlang docs for IEx help function
 export KERL_BUILD_DOCS="yes"
-
-# Scala Stuff
-# # JVM installed by coursier
-export JAVA_HOME="/Users/jordanwiddison/Library/Java/JavaVirtualMachines/corretto-1.8.0_362/Contents/Home"
-# export JAVA_HOME="/Users/jordanwiddison/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
-# coursier install directory
-export PATH="$PATH:/Users/jordanwiddison/Library/Application Support/Coursier/bin"
-
-# Brew happy with BCLI
-export LIBRARY_PATH="$(brew --prefix)/lib"
-export CPATH="$(brew --prefix)/include"
+export KERL_CONFIGURE_OPTIONS="--without-javac \
+  --disable-parallel-configure \
+  --with-ssl=$(brew --prefix openssl@3) \
+  --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config"

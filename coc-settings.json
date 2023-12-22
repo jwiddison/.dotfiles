@@ -5,7 +5,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["elixir", "eelixir", "javascript", "typescript"],
   "languageserver": {
     "elixirLS": {
-      "command": "~/Dev/.elixir-ls/rel/language_server.sh",
+      "command": "~/Dev/.elixir-ls/language_server.sh",
       "filetypes": ["elixir", "eelixir"],
       "settings": {
         "elixirLS": {}

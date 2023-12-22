@@ -39,6 +39,28 @@ cp ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
 ```
+## Brew Install
+
+```sh
+arch -arm64 brew install neovim tmux ranger the_silver_searcher highlight
+```
+TODO: Might not need these ones anymore
+```sh
+arch -arm64 brew install the_silver_searcher highlight
+```
+
+For asdf:
+```sh
+arch -arm64 brew install coreutils curl git
+```
+For erlang:
+```sh
+arch -arm64 brew install autoconf wxwidgets openssl@1.1 libxslt fop
+```
+For node / COC:
+```sh
+arch -arm64 brew install yarn
+```
 
 ## Ranger
 
@@ -68,17 +90,17 @@ Or you can get a DMG from their [github releases](https://github.com/kovidgoyal/
 
 You can also update kitty to use the icon included in the dotfiles repo if you want.
 
-## Brew Install
-
-```sh
-brew install neovim tmux ranger the_silver_searcher highlight
-```
-
 ## Vundle
 
 ```sh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
+
+## COC
+
+If COC is giving you an error about `coc.nvim] build/index.js not found, please compile coc.nvim by: npm run build` 
+change into the `~/.vim/bundle/coc.nvim/` folder and run `yarn install ; yarn build`. Make sure you have
+some version of node installed via asdf, and brew install yarn if you need it.
 
 ## Prezto
 
