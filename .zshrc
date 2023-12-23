@@ -30,6 +30,7 @@ alias last-commit-sha="git rev-parse HEAD | tr -d '[:space:]' | pbcopy && pbpast
 alias ls="ls -alFG"
 alias reloadzsh="source ~/.zshrc"
 alias start-dev="~/.dotfiles/tmux/dev-startup.sh"
+alias tmp="dev && cd tmp/"
 alias undo-last-commit="git reset --hard HEAD~1"
 alias up="cd .."
 alias uuid="uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"

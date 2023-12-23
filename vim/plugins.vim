@@ -84,7 +84,8 @@ Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
 Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
-Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'AlexvZyl/nordic.nvim', { 'branch': 'main' }
 
 " File Icons
 " NOTE: Needs to go last
