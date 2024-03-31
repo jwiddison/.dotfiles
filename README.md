@@ -38,6 +38,7 @@ cp ~/.dotfiles/.tmux.conf ~/.tmux.conf
 cp ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
+cp ~/.dotfiles/zed-settings.json ~/.config/zed/settings.json
 ```
 ## Brew Install
 
