@@ -8,6 +8,12 @@ My dotfiles. To get set up:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## Brew Install
+
+```sh
+brew install fish neovim tmux ranger highlight
+```
+
 ## Git
 
 Generate new SSH key, and add to github/gitlab
@@ -15,6 +21,11 @@ Generate new SSH key, and add to github/gitlab
 ```sh
 sh-keygen -t ed25519 -C jordan.widdison@gmail.com
 cat ~/.ssh/{{filename}}.pub
+```
+If you don't have git (MacOS):
+
+```sh
+xcode-select --install
 ```
 
 ## Clone Dotfiles Repo
@@ -27,15 +38,16 @@ This will make you install the xcode developer tools. That's good.
 
 ## System Config Files
 
-Copy the example config files for kitty, zsh, vim, and tmux out of the
+Copy the example config files for kitty, fish, vim, and tmux out of the
 dotfiles repo and into your system config files.
 Also copy over the .gitignore and .gitconfig.
 
 ```sh
-cp ~/.dotfiles/.vimrc ~/.vimrc
-cp ~/.dotfiles/.zshrc ~/.zshrc
-cp ~/.dotfiles/.tmux.conf ~/.tmux.conf
-cp ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp ~/.dotfiles/example_system_config_files/.vimrc ~/.vimrc
+cp ~/.dotfiles/example_system_config_files/init.vim ~/.config/nvim/init.vim
+cp ~/.dotfiles/example_system_config_files/.tmux.conf ~/.tmux.conf
+cp ~/.dotfiles/example_system_config_files/kitty.conf ~/.config/kitty/kitty.conf
+cp ~/.dotfiles/example_system_config_files/config.fish ~/.config/fish/config.fish
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
 cp ~/.dotfiles/zed-settings.json ~/.config/zed/settings.json
@@ -114,7 +126,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 ```
 
-Change the prompt theme .zpreztorc to
+Change the prompt theme in `.zpreztorc` to
 ```
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 ```
@@ -164,6 +176,7 @@ After running that you can safely delete these files
 
 ## ASDF
 
+TODO: See what parts of these I actually still need
 ```sh
 brew install coreutils curl git
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0

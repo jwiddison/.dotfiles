@@ -1,6 +1,3 @@
-" ============================================
-" ==== Lightline Config - Jordan Widdison ====
-" ============================================
 let g:lightline = {}
 
 " Colorscheme
@@ -36,9 +33,7 @@ augroup my_neomake_hooks
   autocmd User NeomakeJobStarted call MyOnNeomakeJobStarted()
 augroup END
 
-"""""""""""""""""""""
 " vim-test extensions
-"""""""""""""""""""""
 function! TestingStatus() abort
   if g:TESTING_STATUS == 'passing'
     return "  "

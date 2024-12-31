@@ -1,10 +1,7 @@
 ################################################################################
-# Aliases 
-################################################################################
-
-# Global Aliases
+## -- Aliases 
 abbr -a a "tmux a"
-abbr -a advent-of-code "dev && cd tmp/advent_of_code/"
+abbr -a advent-of-code "dev && cd advent_of_code/"
 abbr -a branch "current-branch"
 abbr -a brewtree "brew deps --tree --installed"
 abbr -a c "clear"
@@ -14,10 +11,11 @@ abbr -a db "start-docker-app && dc up -d postgres"
 abbr -a dbfullreset "mix ecto.drop && mix ecto.create && mix ecto.migrate"
 abbr -a dc "docker-compose"
 abbr -a desktop "cd ~/Desktop/"
+abbr -a dev "cd ~/Dev"
 abbr -a documents "cd ~/Documents/"
 abbr -a dotfiles "cd ~/.dotfiles/"
 abbr -a downloads "cd ~/Downloads/"
-abbr -a fishconf "v ~/.dotfiles/fish.conf"
+abbr -a fishconf "nvim ~/.dotfiles/config.fish"
 abbr -a gap "git add -p"
 abbr -a gb "git branch"
 abbr -a gco "git checkout"
@@ -27,22 +25,22 @@ abbr -a gpom "git pull origin master"
 abbr -a gs "git status"
 abbr -a k "kubectl"
 abbr -a kill-git-branches 'git branch | grep -v "master" | xargs git branch -D'
-abbr -a kittyconf "v ~/.dotfiles/kitty/kitty.conf"
+abbr -a kittyconf "nvim ~/.dotfiles/kitty/kitty.conf"
 abbr -a kns "kubens"
 abbr -a last-commit-sha "git rev-parse HEAD | tr -d '[:space:]' | pbcopy && pbpaste"
-abbr -a lightline "v ~/.dotfiles/vim/lightline.vim"
+abbr -a lightline "nvim ~/.dotfiles/vim/lightline.vim"
 abbr -a ls "ls -alFG"
 abbr -a migrate "mix ecto.migrate"
-abbr -a reload "source ~/.zshrc"
-abbr -a reloadzsh "reload"
+abbr -a reloadfish "source ~/.config/fish/config.fish"
 abbr -a rollback "mix ecto.rollback"
+abbr -a start-dev ". ~/.dotfiles/tmux/dev-startup.sh"
 abbr -a test "mix test"
 abbr -a undo-last-commit "git reset --hard HEAD~1"
 abbr -a up "cd .."
 abbr -a uuid "uuidgen | tr \"[:upper:]\" \"[:lower:]\" | tr -d '[:space:]' | pbcopy && pbpaste"
 abbr -a v "nvim" 
-abbr -a vimrc "v ~/.dotfiles/.vimrc"
-abbr -a zshrc "v ~/.dotfiles/.zshrc"
+abbr -a vimrc "nvim ~/.dotfiles/.vimrc"
+abbr -a zshrc "nvim ~/.dotfiles/.zshrc"
 
 # Work Aliases
 abbr -a divvy-elixir-protos "dev && cd elixir_divvy_protobuf/"
@@ -59,3 +57,25 @@ abbr -a start-dev "~/.dotfiles/tmux/dev-startup.sh"
 abbr -a start-uw "~/.dotfiles/tmux/underwriting-startup.sh"
 abbr -a tmp "dev && cd tmp/"
 abbr -a uw "dev && cd underwriting/ && source .env"
+
+################################################################################
+## -- Plugins
+# ASDF
+# If installing with git:
+# source ~/.asdf/asdf.fish
+# If installing with homebrew:
+# source /usr/local/opt/asdf/libexec/asdf.fish
+# Also, run this command once after installing (git):
+# $ mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+# If installing with homebrew, run this once:
+# $ echo -e "\nsource "(brew --prefix asdf)"/libexec/asdf.fish" >> ~/.config/fish/config.fish
+# (And probably move what it adds to the base fish config file into here)
+
+################################################################################
+## -- Env
+# Elixir / Erlang
+# set -Ux ERL_AFLAGS "-kernel shell_history enabled"
+# set -Ux KERL_BUILD_DOCS "yes"
+# set -Ux KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --with-ssl=$(brew --prefix openssl@1.1)"
+# If setting up erlang for the first time, run this once openssl@1.1 is installed:
+# $ fish_add_path /usr/local/opt/openssl@1.1/bin
