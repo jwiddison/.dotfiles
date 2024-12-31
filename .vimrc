@@ -37,7 +37,12 @@ let g:vim_json_conceal = 0
 " let g:embark_terminal_italics = 1
 " colorscheme embark
 
-colorscheme nordic
+let g:sonokai_better_performance = 1
+let g:sonokai_dim_inactive_windows = 1
+let g:sonokai_enable_italic = 1
+let g:sonokai_style = 'maia'
+let g:sonokai_transparent_background = 1
+colorscheme sonokai
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
