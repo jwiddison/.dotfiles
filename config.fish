@@ -1,7 +1,15 @@
+set fish_greeting
+
+# Separators
+set -Ux LEFT_SEPARATOR ""
+set -Ux LEFT_SUB_SEPARATOR "/"
+set -Ux RIGHT_SEPARATOR ""
+set -Ux RIGHT_SUB_SEPARATOR "/"
+
 ################################################################################
 ## -- Aliases 
 abbr -a a "tmux a"
-abbr -a advent-of-code "dev && cd advent_of_code/"
+abbr -a advent-of-code "cd ~/Dev/advent-of-code/"
 abbr -a branch "current-branch"
 abbr -a brewtree "brew deps --tree --installed"
 abbr -a c "clear"
@@ -62,7 +70,7 @@ abbr -a uw "dev && cd underwriting/ && source .env"
 ## -- Plugins
 # ASDF
 # If installing with git:
-# source ~/.asdf/asdf.fish
+source ~/.asdf/asdf.fish
 # If installing with homebrew:
 # source /usr/local/opt/asdf/libexec/asdf.fish
 # Also, run this command once after installing (git):
