@@ -1,0 +1,4 @@
+font-size=16
+macos-titlebar-proxy-icon=hidden
+title=" "
+window-colorspace=display-p3

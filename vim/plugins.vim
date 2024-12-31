@@ -73,7 +73,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plugin 'sainnhe/sonokai'
 
 " File Icons

@@ -34,9 +34,6 @@ let g:vim_json_conceal = 0
 " ====  User Settings  ====
 " =========================
 
-" let g:embark_terminal_italics = 1
-" colorscheme embark
-
 let g:sonokai_better_performance = 1
 let g:sonokai_dim_inactive_windows = 1
 let g:sonokai_enable_italic = 1
