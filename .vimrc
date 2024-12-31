@@ -28,6 +28,7 @@ let g:ranger_map_keys = 0
 let g:rehash256 = 1
 let g:vitality_insert_cursor = 2
 let test#strategy = "neomake"
+let g:vim_json_conceal = 0
 
 " =========================
 " ====  User Settings  ====
