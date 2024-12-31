@@ -34,7 +34,6 @@ abbr -a gpom "git pull origin master"
 abbr -a gs "git status"
 abbr -a k "kubectl"
 abbr -a kill-git-branches 'git branch | grep -v "master" | xargs git branch -D'
-abbr -a kittyconf "nvim ~/.dotfiles/kitty/kitty.conf"
 abbr -a kns "kubens"
 abbr -a last-commit-sha "git rev-parse HEAD | tr -d '[:space:]' | pbcopy && pbpaste"
 abbr -a lightline "nvim ~/.dotfiles/vim/lightline.vim"

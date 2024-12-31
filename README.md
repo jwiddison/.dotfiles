@@ -38,7 +38,7 @@ This will make you install the xcode developer tools. That's good.
 
 ## System Config Files
 
-Copy the example config files for kitty, fish, vim, and tmux out of the
+Copy the example config files for fish, vim, and tmux out of the
 dotfiles repo and into your system config files.
 Also copy over the .gitignore and .gitconfig.
 
@@ -46,11 +46,9 @@ Also copy over the .gitignore and .gitconfig.
 cp ~/.dotfiles/example_system_config_files/.vimrc ~/.vimrc
 cp ~/.dotfiles/example_system_config_files/init.vim ~/.config/nvim/init.vim
 cp ~/.dotfiles/example_system_config_files/.tmux.conf ~/.tmux.conf
-cp ~/.dotfiles/example_system_config_files/kitty.conf ~/.config/kitty/kitty.conf
 cp ~/.dotfiles/example_system_config_files/config.fish ~/.config/fish/config.fish
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
-cp ~/.dotfiles/zed-settings.json ~/.config/zed/settings.json
 ```
 ## Brew Install
 
@@ -93,15 +91,9 @@ HIGHLIGHT_STYLE=base16/material
 
 Or whatever theme you want for the previews
 
-## Install Kitty Terminal
+## Install Ghostty Terminal
 
-```sh
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-```
-
-Or you can get a DMG from their [github releases](https://github.com/kovidgoyal/kitty/releases) if on an Apple silicon macs
-
-You can also update kitty to use the icon included in the dotfiles repo if you want.
+TODO: Write this part
 
 ## Vundle
 
