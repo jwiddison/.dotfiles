@@ -110,3 +110,6 @@ source ~/.asdf/asdf.fish
 # set -Ux KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --with-ssl=$(brew --prefix openssl@1.1)"
 # If setting up erlang for the first time, run this once openssl@1.1 is installed:
 # $ fish_add_path /usr/local/opt/openssl@1.1/bin
+
+# Starship
+starship init fish | source

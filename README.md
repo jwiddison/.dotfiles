@@ -11,7 +11,7 @@ My dotfiles. To get set up:
 ## Brew Install
 
 ```sh
-brew install fish neovim tmux ranger highlight
+brew install fish neovim tmux ranger the_silver_searcher starship highlight
 ```
 
 ## Git
