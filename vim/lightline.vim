@@ -5,7 +5,7 @@ let g:lightline = {}
 
 " Colorscheme
 " let g:lightline.colorscheme = 'embark'
-let g:lightline.colorscheme = 'nord'
+let g:lightline.colorscheme = 'sonokai'
 
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>

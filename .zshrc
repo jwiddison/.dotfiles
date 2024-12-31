@@ -131,6 +131,12 @@ function watchpods() {
 # Other
 ################################################################################
 
+# Separators
+export LEFT_SEPARATOR=""
+export LEFT_SUB_SEPARATOR="/"
+export RIGHT_SEPARATOR=""
+export RIGHT_SUB_SEPARATOR="/"
+
 # Always use nvim
 export EDITOR="/opt/homebrew/bin/nvim"
 export VISUAL="$EDITOR"
@@ -152,6 +158,7 @@ source ~/.dotfiles/.p10k.zsh
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="yes"
 export KERL_CONFIGURE_OPTIONS="--without-javac \
+  --disable-jit \
   --disable-parallel-configure \
   --with-ssl=$(brew --prefix openssl@3) \
   --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config"
