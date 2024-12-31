@@ -38,6 +38,9 @@ Plugin 'tomtom/tcomment_vim'
 " Fuzzy find files
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Project-wide search
+Plugin 'rking/ag.vim'
+
 " Change surrounding character to something else
 Plugin 'tpope/vim-surround'
 
@@ -52,7 +55,8 @@ Plugin 'itchyny/lightline.vim'
 
 " File Explorer
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'rbgrouleff/bclose.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
