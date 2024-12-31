@@ -1,3 +1,4 @@
+# Turn off the hello message on startup
 set fish_greeting
 
 # Separators
@@ -7,7 +8,7 @@ set -Ux RIGHT_SEPARATOR ""
 set -Ux RIGHT_SUB_SEPARATOR "/"
 
 ################################################################################
-## -- Aliases 
+## -- Aliases
 abbr -a a "tmux a"
 abbr -a advent-of-code "cd ~/Dev/advent-of-code/"
 abbr -a branch "current-branch"
@@ -65,6 +66,28 @@ abbr -a start-dev "~/.dotfiles/tmux/dev-startup.sh"
 abbr -a start-uw "~/.dotfiles/tmux/underwriting-startup.sh"
 abbr -a tmp "dev && cd tmp/"
 abbr -a uw "dev && cd underwriting/ && source .env"
+
+################################################################################
+## -- Functions
+
+function ci
+  set BLUE '\033[0;34m'
+  set GREEN '\033[0;32m'
+  set NC '\033[0m'
+  set SEPARATOR '--------------------------------------------\n'
+
+  echo -e \n"$GREEN$SEPARATOR"RUNNING LOCAL CI\n$SEPARATOR$NC
+  echo -e \n"$BLUE$SEPARATOR"FORMATTING\n$SEPARATOR$NC
+  mix format
+  echo -e DONE
+  echo -e \n"$BLUE$SEPARATOR"LINTING\n$SEPARATOR$NC
+  mix credo --strict
+  echo -e \n"$BLUE$SEPARATOR"TESTING\n$SEPARATOR$NC
+  mix test
+  # echo -e \n"$BLUE$SEPARATOR"DIALYZER\n$SEPARATOR$NC
+  # mix dialyzer
+  echo -e \n"$GREEN$SEPARATOR"DONE\n$SEPARATOR$NC
+end
 
 ################################################################################
 ## -- Plugins
