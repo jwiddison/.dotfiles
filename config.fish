@@ -1,11 +1,6 @@
 # Turn off the hello message on startup
 set fish_greeting
 
-# Separators
-set -Ux LEFT_SEPARATOR ""
-set -Ux LEFT_SUB_SEPARATOR "/"
-set -Ux RIGHT_SEPARATOR ""
-set -Ux RIGHT_SUB_SEPARATOR "/"
 
 ################################################################################
 ## -- Aliases
@@ -69,8 +64,25 @@ function ci
   mix credo --strict
   echo -e \n"$BLUE$SEPARATOR"TESTING\n$SEPARATOR$NC
   mix test
-  # echo -e \n"$BLUE$SEPARATOR"DIALYZER\n$SEPARATOR$NC
-  # mix dialyzer
+  echo -e \n"$GREEN$SEPARATOR"DONE\n$SEPARATOR$NC
+end
+
+function cid
+  set BLUE '\033[0;34m'
+  set GREEN '\033[0;32m'
+  set NC '\033[0m'
+  set SEPARATOR '--------------------------------------------\n'
+
+  echo -e \n"$GREEN$SEPARATOR"RUNNING LOCAL CI\n$SEPARATOR$NC
+  echo -e \n"$BLUE$SEPARATOR"FORMATTING\n$SEPARATOR$NC
+  mix format
+  echo -e DONE
+  echo -e \n"$BLUE$SEPARATOR"LINTING\n$SEPARATOR$NC
+  mix credo --strict
+  echo -e \n"$BLUE$SEPARATOR"TESTING\n$SEPARATOR$NC
+  mix test
+  echo -e \n"$BLUE$SEPARATOR"DIALYZER\n$SEPARATOR$NC
+  mix dialyzer
   echo -e \n"$GREEN$SEPARATOR"DONE\n$SEPARATOR$NC
 end
 
@@ -89,12 +101,23 @@ source ~/.asdf/asdf.fish
 
 ################################################################################
 ## -- Env
+
+# Separators (For tmux/vim bars)
+set -Ux LEFT_SEPARATOR ""
+set -Ux LEFT_SUB_SEPARATOR "/"
+set -Ux RIGHT_SEPARATOR ""
+set -Ux RIGHT_SUB_SEPARATOR "/"
+
 # Elixir / Erlang
-# set -Ux ERL_AFLAGS "-kernel shell_history enabled"
-# set -Ux KERL_BUILD_DOCS "yes"
-# set -Ux KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --with-ssl=$(brew --prefix openssl@1.1)"
+set -Ux ERL_AFLAGS "-kernel shell_history enabled"
+set -Ux KERL_BUILD_DOCS "yes"
+set -Ux KERL_CONFIGURE_OPTIONS "--without-javac \
+  --disable-jit \
+  --disable-parallel-configure \
+  --with-ssl=$(brew --prefix openssl@3) \
+  --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config"
 # If setting up erlang for the first time, run this once openssl@1.1 is installed:
 # $ fish_add_path /usr/local/opt/openssl@1.1/bin
 
-# Starship
+# Starship (Needs to go last)
 starship init fish | source
