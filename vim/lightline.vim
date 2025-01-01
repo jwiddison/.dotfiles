@@ -35,11 +35,11 @@ augroup END
 " vim-test extensions
 function! TestingStatus() abort
   if g:TESTING_STATUS == 'passing'
-    return "  "
+    return "  "
   elseif g:TESTING_STATUS == 'running'
-    return " ﳘ "
+    return " 󰟚 "
   elseif g:TESTING_STATUS == 'failing'
-    return "  "
+    return "  "
   endif
 endfunction
 
@@ -57,9 +57,9 @@ endfunction
 
 function! Git_branch() abort
   if FugitiveHead() !=# ''
-    return  " " . FugitiveHead()
+    return  " " . FugitiveHead()
   else
-    return "\uf468"
+    return "  "
   endif
 endfunction
 
