@@ -1,3 +1,6 @@
+# If homebrew stuff doesn't work after switching to fish shell, run this:
+# $ fish_add_path /opt/homebrew/bin
+
 ################################################################################
 ## -- Aliases
 
