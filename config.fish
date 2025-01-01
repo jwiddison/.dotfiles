@@ -87,11 +87,11 @@ function cid
 end
 
 function squash-branch-changes
-  git reset $(git merge-base master $(current-branch))
+  git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
 end
 
 function squash-branch-changes-main
-  git reset $(git merge-base main $(current-branch))
+  git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))
 end
 
 # Checks the status of k8s pods. Assumes kubectx and kubens have set context and namespace
