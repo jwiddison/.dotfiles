@@ -1,10 +1,8 @@
-# Turn off the hello message on startup
-set fish_greeting
-
-
 ################################################################################
 ## -- Aliases
+
 abbr -a a "tmux a"
+abbr -a aoc "cd ~/Dev/advent-of-code/"
 abbr -a advent-of-code "cd ~/Dev/advent-of-code/"
 abbr -a branch "current-branch"
 abbr -a brewtree "brew deps --tree --installed"
@@ -50,11 +48,12 @@ abbr -a zshrc "nvim ~/.dotfiles/.zshrc"
 ################################################################################
 ## -- Functions
 
+# Runs a local "CI" check on an elixir project
 function ci
-  set BLUE '\033[0;34m'
-  set GREEN '\033[0;32m'
-  set NC '\033[0m'
-  set SEPARATOR '--------------------------------------------\n'
+  set -f BLUE '\033[0;34m'
+  set -f GREEN '\033[0;32m'
+  set -f NC '\033[0m'
+  set -f SEPARATOR '--------------------------------------------\n'
 
   echo -e \n"$GREEN$SEPARATOR"RUNNING LOCAL CI\n$SEPARATOR$NC
   echo -e \n"$BLUE$SEPARATOR"FORMATTING\n$SEPARATOR$NC
@@ -67,11 +66,12 @@ function ci
   echo -e \n"$GREEN$SEPARATOR"DONE\n$SEPARATOR$NC
 end
 
+# Runs a local "CI" check on an elixir project (PLUS dialyzer)
 function cid
-  set BLUE '\033[0;34m'
-  set GREEN '\033[0;32m'
-  set NC '\033[0m'
-  set SEPARATOR '--------------------------------------------\n'
+  set -f BLUE '\033[0;34m'
+  set -f GREEN '\033[0;32m'
+  set -f NC '\033[0m'
+  set -f SEPARATOR '--------------------------------------------\n'
 
   echo -e \n"$GREEN$SEPARATOR"RUNNING LOCAL CI\n$SEPARATOR$NC
   echo -e \n"$BLUE$SEPARATOR"FORMATTING\n$SEPARATOR$NC
@@ -86,8 +86,30 @@ function cid
   echo -e \n"$GREEN$SEPARATOR"DONE\n$SEPARATOR$NC
 end
 
+function squash-branch-changes
+  git reset $(git merge-base master $(current-branch))
+end
+
+function squash-branch-changes-main
+  git reset $(git merge-base main $(current-branch))
+end
+
+# Checks the status of k8s pods. Assumes kubectx and kubens have set context and namespace
+function watchpods --argument interval
+  set -q interval[1]
+  or set interval 5
+
+  while true;
+    set OUTPUT $(kubectl get pods)
+    clear
+    echo -n $OUTPUT
+    sleep $interval;
+  end
+end
+
 ################################################################################
 ## -- Plugins
+
 # ASDF
 # If installing with git:
 source ~/.asdf/asdf.fish
@@ -101,6 +123,13 @@ source ~/.asdf/asdf.fish
 
 ################################################################################
 ## -- Env
+
+# Turn off the hello message on startup
+set fish_greeting
+
+# Always use nvim
+set -Ux EDITOR $(which nvim)
+set -Ux VISUAL $EDITOR
 
 # Separators (For tmux/vim bars)
 set -Ux LEFT_SEPARATOR ""
@@ -119,5 +148,6 @@ set -Ux KERL_CONFIGURE_OPTIONS "--without-javac \
 # If setting up erlang for the first time, run this once openssl@1.1 is installed:
 # $ fish_add_path /usr/local/opt/openssl@1.1/bin
 
+# TODO Decide if I actually want starship or not
 # Starship (Needs to go last)
-starship init fish | source
+# starship init fish | source
