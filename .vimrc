@@ -34,9 +34,6 @@ let g:vim_json_conceal = 0
 " ====  User Settings  ====
 " =========================
 
-" let g:embark_terminal_italics = 1
-" colorscheme embark
-
 let g:sonokai_better_performance = 1
 let g:sonokai_dim_inactive_windows = 1
 let g:sonokai_enable_italic = 1
@@ -46,8 +43,8 @@ colorscheme sonokai
 
 set autoread                             " Read file from disk when vim gains focus
 set autowrite                            " Auto write file to disc on certain commands
-set backspace=indent,eol,start           " Let's backspace behave how you'd expect
 set background=dark                      " Dark themes by default
+set backspace=indent,eol,start           " Let's backspace behave how you'd expect
 set colorcolumn=120                      " Sets the line length indicator at column 120
 set directory=~/.vim/backups             " Tell VIM where to put swp files
 set expandtab                            " Insert 2 space chars when pressing tab
@@ -147,7 +144,6 @@ map <Leader>P "+P
 " Run tests
 nmap <leader>, :TestNearest<CR>
 nmap <leader>. :TestFile<CR>
-nmap <leader>/ :TestLast<CR>
 
 " Move lines up and down
 " It might look weird, but those are option + j and option + k for down and up
@@ -205,10 +201,6 @@ nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
 nnoremap <C-l> :tabnew<CR>
 nnoremap <C-h> :tabclose<CR>
-
-" Navigating Buffers 
-nnoremap <C-o> :bp<CR>
-nnoremap <C-i> :bn<CR>
 
 " The Silver Searcher
 if executable('ag')

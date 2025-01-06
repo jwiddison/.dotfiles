@@ -25,9 +25,6 @@ Plugin 'yuttie/comfortable-motion.vim'
 " Resize windows
 Plugin 'simeji/winresizer'
 
-" Swap back and forth between single and multi-line blocks
-Plugin 'AndrewRadev/splitjoin.vim'
-
 " Re-add FocusLost and FocusGained events 
 Plugin 'sjl/vitality.vim'
 
@@ -53,20 +50,13 @@ Plugin 'tpope/vim-endwise'
 " Bracket Pair Colorizer
 Plugin 'luochen1990/rainbow'
 
-" File Explorer(s)
-Plugin 'francoiscabrol/ranger.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " Lightline
 Plugin 'itchyny/lightline.vim'
 
-" JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-
-" Scala
-Plugin 'derekwyatt/vim-scala'
+" File Explorer
+Plugin 'francoiscabrol/ranger.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -83,7 +73,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Color scheme
-Plugin 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plugin 'sainnhe/sonokai'
 
 " File Icons

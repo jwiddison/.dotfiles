@@ -8,6 +8,12 @@ My dotfiles. To get set up:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## Brew Install
+
+```sh
+brew install fish neovim tmux ranger the_silver_searcher starship highlight
+```
+
 ## Git
 
 Generate new SSH key, and add to github/gitlab
@@ -15,6 +21,11 @@ Generate new SSH key, and add to github/gitlab
 ```sh
 sh-keygen -t ed25519 -C jordan.widdison@gmail.com
 cat ~/.ssh/{{filename}}.pub
+```
+If you don't have git (MacOS):
+
+```sh
+xcode-select --install
 ```
 
 ## Clone Dotfiles Repo
@@ -27,18 +38,17 @@ This will make you install the xcode developer tools. That's good.
 
 ## System Config Files
 
-Copy the example config files for kitty, zsh, vim, and tmux out of the
+Copy the example config files for fish, vim, and tmux out of the
 dotfiles repo and into your system config files.
 Also copy over the .gitignore and .gitconfig.
 
 ```sh
-cp ~/.dotfiles/.vimrc ~/.vimrc
-cp ~/.dotfiles/.zshrc ~/.zshrc
-cp ~/.dotfiles/.tmux.conf ~/.tmux.conf
-cp ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp ~/.dotfiles/example_system_config_files/.vimrc ~/.vimrc
+cp ~/.dotfiles/example_system_config_files/init.vim ~/.config/nvim/init.vim
+cp ~/.dotfiles/example_system_config_files/.tmux.conf ~/.tmux.conf
+cp ~/.dotfiles/example_system_config_files/config.fish ~/.config/fish/config.fish
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
-cp ~/.dotfiles/zed-settings.json ~/.config/zed/settings.json
 ```
 ## Brew Install
 
@@ -81,15 +91,9 @@ HIGHLIGHT_STYLE=base16/material
 
 Or whatever theme you want for the previews
 
-## Install Kitty Terminal
+## Install Ghostty Terminal
 
-```sh
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-```
-
-Or you can get a DMG from their [github releases](https://github.com/kovidgoyal/kitty/releases) if on an Apple silicon macs
-
-You can also update kitty to use the icon included in the dotfiles repo if you want.
+TODO: Write this part
 
 ## Vundle
 
@@ -114,7 +118,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 ```
 
-Change the prompt theme .zpreztorc to
+Change the prompt theme in `.zpreztorc` to
 ```
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 ```
@@ -164,6 +168,7 @@ After running that you can safely delete these files
 
 ## ASDF
 
+TODO: See what parts of these I actually still need
 ```sh
 brew install coreutils curl git
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0

@@ -1,10 +1,6 @@
-" ============================================
-" ==== Lightline Config - Jordan Widdison ====
-" ============================================
 let g:lightline = {}
 
 " Colorscheme
-" let g:lightline.colorscheme = 'embark'
 let g:lightline.colorscheme = 'sonokai'
 
 nnoremap <silent> <UP> :cope<CR>
@@ -36,16 +32,14 @@ augroup my_neomake_hooks
   autocmd User NeomakeJobStarted call MyOnNeomakeJobStarted()
 augroup END
 
-"""""""""""""""""""""
 " vim-test extensions
-"""""""""""""""""""""
 function! TestingStatus() abort
   if g:TESTING_STATUS == 'passing'
-    return "  "
+    return "  "
   elseif g:TESTING_STATUS == 'running'
-    return " ﳘ "
+    return " 󰟚 "
   elseif g:TESTING_STATUS == 'failing'
-    return "  "
+    return "  "
   endif
 endfunction
 
@@ -63,21 +57,21 @@ endfunction
 
 function! Git_branch() abort
   if FugitiveHead() !=# ''
-    return  " " . FugitiveHead()
+    return  " " . FugitiveHead()
   else
-    return "\uf468"
+    return "  "
   endif
 endfunction
 
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   if get(info, 'error', 0)
-    return "\uf46f"
+    return " \uf46f"
   endif
   if get(info, 'warning', 0)
     return info['warning'] . "\uf421"
   endif
-  return "\uf42e " 
+  return " \uf42e " 
 endfunction
 
 let g:neomake_warning_sign = { 'text': '◉' }
