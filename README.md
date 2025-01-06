@@ -8,12 +8,6 @@ My dotfiles. To get set up:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Brew Install
-
-```sh
-brew install fish neovim tmux ranger the_silver_searcher starship highlight
-```
-
 ## Git
 
 Generate new SSH key, and add to github/gitlab
@@ -34,12 +28,11 @@ xcode-select --install
 git clone git@github.com:jwiddison/.dotfiles.git
 ```
 
-This will make you install the xcode developer tools. That's good.
+This will make you install the xcode developer tools if you haven't already.
 
 ## System Config Files
 
-Copy the example config files for fish, vim, and tmux out of the
-dotfiles repo and into your system config files.
+Copy the example config files for fish, vim, tmux, etc out of the dotfiles repo and into your system config files.
 Also copy over the .gitignore and .gitconfig.
 
 ```sh
@@ -50,27 +43,20 @@ cp ~/.dotfiles/example_system_config_files/config.fish ~/.config/fish/config.fis
 cp ~/.dotfiles/.gitignore ~/.gitignore
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
 ```
-## Brew Install
+
+## Change shell to fish
 
 ```sh
-arch -arm64 brew install neovim tmux ranger the_silver_searcher highlight
-```
-TODO: Might not need these ones anymore
-```sh
-arch -arm64 brew install the_silver_searcher highlight
+chsh -s $(which fish)
 ```
 
-For asdf:
+## Brew Install All the Things
+
+TODO: Figure out if I still need the `arch -arm64` prefix anymore.
+I probably don't.
+
 ```sh
-arch -arm64 brew install coreutils curl git
-```
-For erlang:
-```sh
-arch -arm64 brew install autoconf wxwidgets openssl@1.1 libxslt fop
-```
-For node / COC:
-```sh
-arch -arm64 brew install yarn
+arch -arm64 brew install fish neovim tmux ranger the_silver_searcher highlight
 ```
 
 ## Ranger
@@ -93,7 +79,7 @@ Or whatever theme you want for the previews
 
 ## Install Ghostty Terminal
 
-TODO: Write this part
+[Download Link](https://ghostty.org/download)
 
 ## Vundle
 
@@ -107,34 +93,16 @@ If COC is giving you an error about `coc.nvim] build/index.js not found, please 
 change into the `~/.vim/bundle/coc.nvim/` folder and run `yarn install ; yarn build`. Make sure you have
 some version of node installed via asdf, and brew install yarn if you need it.
 
-## Prezto
-
-```sh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-```
-
-Change the prompt theme in `.zpreztorc` to
-```
-zstyle ':prezto:module:prompt' theme 'powerlevel10k'
-```
-
-It should pull the config from dotfiles automagically.
-
-Can also add `'autosuggestions'` to the list at the top
-and remove `'history-substring-search' \`
-
 ## Fonts
 
-# TODO
-
-[Nerd Font Icons](https://www.nerdfonts.com/cheat-sheet)
+Fonts are included in `fonts/` if you need them.
+You shouldn't need them though.
+Ghostty includes a nerdfont-patched version of JetBrains Mono already.
 
 ## TMUX
+
+TODO: This section MIGHT not be necessary with Ghostty.
+If everything looks fine, just ignore this part.
 
 [Make Italics / Colors Work With TMUX](https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be)
 
@@ -166,39 +134,41 @@ tic -x tmux-256color.terminfo
 
 After running that you can safely delete these files
 
-## ASDF
+## ASDF (tool version manager)
 
-TODO: See what parts of these I actually still need
 ```sh
-brew install coreutils curl git
+arch -arm64 brew install coreutils curl git
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 ```
 
-The necessary zsh config should already be in the .zshrc
+The necessary fish config should already be in your shell profile
 (Note the difference depending on whether or not you're on a 0.8 version or higher)
 You might need to change how it does the completions stuff.
 [This Article](https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories) is helpful if there are issues
 
 ### Erlang
 
+NOTE: I think brew stopped distributing openssl 1.1.
+Might need to figure out something else here.
+Although, I don't think it's required after OTP 25.
+
 ```sh
-brew install autoconf wxmac
+arch -arm64 brew install autoconf wxwidgets openssl@1.1 libxslt fop
 asdf plugin-add erlang
 ```
-
 Might be worth looking into the new-ish thing to pull pre-built binaries
 
 ### Elixir
 
 ```sh
-brew install unzip
+arch -arm64 brew install unzip
 asdf plugin-add elixir
 ```
 
-### Node
+### Node (Required for COC)
 
 ```sh
-brew install gpg gawk
+arch -arm64 brew install yarn gpg gawk
 asdf plugin-add nodejs
 ```
 
