@@ -16,7 +16,7 @@ Plugin 'ervandew/supertab'
 " Multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
-" " Add indentation guidelines
+" Add indentation guidelines
 Plugin 'thaerkh/vim-indentguides'
 
 " Smooth scrolling
@@ -55,8 +55,6 @@ Plugin 'itchyny/lightline.vim'
 
 " File Explorer
 Plugin 'francoiscabrol/ranger.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " COC for language server stuff
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -68,7 +66,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'janko/vim-test'
 Plugin 'neomake/neomake'
 
-" Git 
+" Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 

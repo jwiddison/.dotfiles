@@ -83,22 +83,6 @@ au FocusGained,BufEnter * :checktime
 " Speed up update time for git gutter
 set updatetime=100
 
-" NERDTree
-let g:DevIconsDefaultFolderOpenSymbol = ''
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:NERDTreeDirArrowCollapsible = ' '
-let g:NERDTreeDirArrowExpandable = ' '
-let g:NERDTreeMinimalUI = 1
-" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
-" after a re-source, fix syntax matching issues (concealing brackets):
-if exists('g:loaded_webdevicons')
-    call webdevicons#refresh()
-endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:rainbow_conf = {'separately': {'nerdtree': 0}}
-
 " =========================
 " ==== Custom Bindings ====
 " =========================
@@ -158,10 +142,6 @@ nnoremap <leader>;f :call CocAction('format')<CR>
 
 " Ranger
 map <leader>n :Ranger<CR>
-
-" NERDTree
-map <leader>- :NERDTreeFind<CR>
-nnoremap <silent>- :NERDTreeToggle<CR>
 
 " Toggles light and dark background on and off
 function ToggleBg()
